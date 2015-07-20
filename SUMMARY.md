@@ -2,5 +2,5 @@
 
 * [Introduction](README.md)
 * [RecyclerView](RecyclerView/recyclerview.md)
-   * SimplestSample
+   * [SimplestSample](RecyclerView/simplestsample.md)
 
