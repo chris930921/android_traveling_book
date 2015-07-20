@@ -4,5 +4,5 @@
 * [RecyclerView](RecyclerView/recyclerview.md)
    * [VertialLinearManager](RecyclerView/simplestsample.md)
    * [HorizonLinearManager](RecyclerView/horizonlinearmanager.md)
-   * [GridLayoutManager](.RecyclerView/gridlayoutmanager.md/gridlayoutmanagermd.md)
+   * [GridLayoutManager](RecyclerView/gridlayoutmanagermdmd.md)
 
