@@ -69,7 +69,7 @@
     }
 ```
 
-![](/picture/03.png)
+![](https://raw.githubusercontent.com/chris930921/Android-Traveling-Book/master/RecyclerView/picture/03.png)
 
 
 
@@ -147,4 +147,4 @@
     }
 ```
 
-![](/picture/04.png)
+![](https://raw.githubusercontent.com/chris930921/Android-Traveling-Book/master/RecyclerView/picture/04.png)
