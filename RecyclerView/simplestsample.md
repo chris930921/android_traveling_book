@@ -72,3 +72,4 @@ private Activity activity;
 
 
 ![](https://raw.githubusercontent.com/chris930921/Android-Traveling-Book/master/RecyclerView/picture/01.png?token=Y2hyaXM5MzA5MjE6NDVkNzk2NDk3MTBmOGY1M2RlYzZkOGM2ZTUzZDI3NmI2NDg1MzQzMA%3D%3D)
+
