@@ -33,7 +33,8 @@
                 ViewGroup.LayoutParams.MATCH_PARENT,
                 ViewGroup.LayoutParams.MATCH_PARENT);
 
-        // 格狀佈局，第二個參數是一列或一欄多少元件。
+        // 格狀佈局 - 垂直滑動
+        // 第二個參數是一列或一欄多少元件。
         GridLayoutManager linearManager = new GridLayoutManager(this, 3);
 
         DefaultItemAnimator animator = new DefaultItemAnimator();
@@ -108,7 +109,7 @@
                 ViewGroup.LayoutParams.MATCH_PARENT,
                 ViewGroup.LayoutParams.MATCH_PARENT);
 
-        // 格狀佈局
+        // 格狀佈局-左右滑動
         // 第二個參數是一列或一欄多少元件。
         // 第三個參數是設定列表滑動方向是 垂直Vertial(填滿列) 或 水平Horizontal(填滿欄)。
         // 第四個參數是是否倒轉。
