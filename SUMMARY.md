@@ -1,9 +1,9 @@
 # Summary
 
 * [Introduction](README.md)
-* [RecyclerView](RecyclerView/recyclerview.md)
-   * [VertialLinearManager](RecyclerView/simplestsample.md)
-   * [HorizonLinearManager](RecyclerView/horizonlinearmanager.md)
-   * [GridLayoutManager](RecyclerView/gridlayoutmanager.md)
-   * [StaggeredGridLayoutManager](recyclerview/staggeredgridlayoutmanager.md)
+* [RecyclerView](chapter01/README.md)
+   * [HorizonLinearManager](chapter01/horizonlinearmanager.md)
+   * [VertialLinearManager](chapter01/vertiallinearmanager.md)
+   * [GridLayoutManager](chapter01/gridlayoutmanager.md)
+   * [StaggeredGridLayoutManager](chapter01/staggeredgridlayoutmanager.md)
 

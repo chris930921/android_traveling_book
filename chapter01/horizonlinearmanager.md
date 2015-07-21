@@ -1,4 +1,4 @@
-﻿
+
 ```java
     private Activity activity;
 
