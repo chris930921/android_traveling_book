@@ -1,4 +1,4 @@
-
+﻿
 ```java
     private Activity activity;
 
@@ -69,4 +69,4 @@
     }
 ```
 
-![](https://raw.githubusercontent.com/chris930921/Android-Traveling-Book/master/RecyclerView/picture/02.png)
+![](picture/02.png)
