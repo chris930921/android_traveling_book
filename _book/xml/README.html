@@ -4,7 +4,7 @@
     <head>
         
         <meta charset="UTF-8">
-        <title>RecyclerView | My Book</title>
+        <title>XML排版初探 | My Book</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
         <meta name="generator" content="GitBook 1.0.3">
@@ -18,7 +18,7 @@
     
     
     
-    <link rel="next" href="../chapter01/horizonlinearmanager.html" />
+    <link rel="next" href="../chapter01/README.html" />
     
     
     <link rel="prev" href="../index.html" />
@@ -33,7 +33,7 @@
 
 
         
-    <div class="book"  data-level="1" data-basepath=".." data-revision="1437501890723">
+    <div class="book"  data-level="1" data-basepath=".." data-revision="1437503858996">
     
 
 <div class="book-summary">
@@ -65,13 +65,29 @@
         </li>
     
         
-        <li class="chapter active" data-level="1" data-path="chapter01/README.html">
+        <li class="chapter active" data-level="1" data-path="xml/README.html">
+            
+                
+                    <a href="../xml/README.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.</b>
+                        
+                         XML排版初探
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="2" data-path="chapter01/README.html">
             
                 
                     <a href="../chapter01/README.html">
                         <i class="fa fa-check"></i>
                         
-                            <b>1.</b>
+                            <b>2.</b>
                         
                          RecyclerView
                     </a>
@@ -82,13 +98,13 @@
                 
     
         
-        <li class="chapter " data-level="1.1" data-path="chapter01/horizonlinearmanager.html">
+        <li class="chapter " data-level="2.1" data-path="chapter01/horizonlinearmanager.html">
             
                 
                     <a href="../chapter01/horizonlinearmanager.html">
                         <i class="fa fa-check"></i>
                         
-                            <b>1.1.</b>
+                            <b>2.1.</b>
                         
                          HorizonLinearManager
                     </a>
@@ -98,13 +114,13 @@
         </li>
     
         
-        <li class="chapter " data-level="1.2" data-path="chapter01/vertiallinearmanager.html">
+        <li class="chapter " data-level="2.2" data-path="chapter01/vertiallinearmanager.html">
             
                 
                     <a href="../chapter01/vertiallinearmanager.html">
                         <i class="fa fa-check"></i>
                         
-                            <b>1.2.</b>
+                            <b>2.2.</b>
                         
                          VertialLinearManager
                     </a>
@@ -114,13 +130,13 @@
         </li>
     
         
-        <li class="chapter " data-level="1.3" data-path="chapter01/gridlayoutmanager.html">
+        <li class="chapter " data-level="2.3" data-path="chapter01/gridlayoutmanager.html">
             
                 
                     <a href="../chapter01/gridlayoutmanager.html">
                         <i class="fa fa-check"></i>
                         
-                            <b>1.3.</b>
+                            <b>2.3.</b>
                         
                          GridLayoutManager
                     </a>
@@ -130,13 +146,13 @@
         </li>
     
         
-        <li class="chapter " data-level="1.4" data-path="chapter01/staggeredgridlayoutmanager.html">
+        <li class="chapter " data-level="2.4" data-path="chapter01/staggeredgridlayoutmanager.html">
             
                 
                     <a href="../chapter01/staggeredgridlayoutmanager.html">
                         <i class="fa fa-check"></i>
                         
-                            <b>1.4.</b>
+                            <b>2.4.</b>
                         
                          StaggeredGridLayoutManager
                     </a>
@@ -239,9 +255,59 @@
                 <div class="page-inner">
                 
                 
-                    <section class="normal" id="section-gitbook_196">
+                    <section class="normal" id="section-gitbook_2736">
                     
-                        <h1 id="chapter01">Chapter01</h1>
+                        <h1 id="xml-">XML 排版初探</h1>
+<p>做 Android 介面排版時，可把以下原則:</p>
+<h4 id="android-view">Android 介面中只分兩種類型的物件，這兩種物件都可統稱作View</h4>
+<ul>
+<li><p>排版框架( Container )</p>
+</li>
+<li><p>功能元件( Component )</p>
+</li>
+</ul>
+<h4 id="">名稱定義</h4>
+<ul>
+<li><p>XML中第一層框架，稱作最大框架。</p>
+</li>
+<li><p>框架內又可以放其他的框架或元件，稱作子框架或子元件。</p>
+</li>
+<li><p>包住子框架或子元件的框架，稱作父框架。</p>
+</li>
+</ul>
+<h4 id="">基本屬性，無論框架或元件應該擁有以下屬性</h4>
+<ul>
+<li><p>寬度 android:layout_width</p>
+</li>
+<li><p>高度 android:layout_height</p>
+</li>
+<li><p>名稱 android:id</p>
+</li>
+</ul>
+<h4 id="">每次編輯結束應按以下快捷鍵，排版有助美觀與理解，儲存有助於消除錯誤。</h4>
+<p>Eclipse ( 快速排版 + 儲存 )</p>
+<ul>
+<li><p>ctrl + shift + F</p>
+</li>
+<li><p>ctrl + S</p>
+</li>
+</ul>
+<p>Android Studio ( 快速排版 + 儲存 )</p>
+<ul>
+<li><p>ctrl + alt + L</p>
+</li>
+<li><p>ctrl + S</p>
+</li>
+</ul>
+<h4 id="">新手常犯的錯誤</h4>
+<ul>
+<li><p>將 android 打為 andorid，導致提示視窗無法出現。</p>
+</li>
+<li><p>將 EditText 打為 EditView，導致排版頁面無法預覽。</p>
+</li>
+<li><p>編輯後沒有儲存讓錯誤提示消除，以為 XML 中仍存在錯誤。</p>
+</li>
+</ul>
 
                     
                     </section>
@@ -255,7 +321,7 @@
         <a href="../index.html" class="navigation navigation-prev " aria-label="Previous page: Introduction"><i class="fa fa-angle-left"></i></a>
         
         
-        <a href="../chapter01/horizonlinearmanager.html" class="navigation navigation-next " aria-label="Next page: HorizonLinearManager"><i class="fa fa-angle-right"></i></a>
+        <a href="../chapter01/README.html" class="navigation navigation-next " aria-label="Next page: RecyclerView"><i class="fa fa-angle-right"></i></a>
         
     </div>
 </div>
