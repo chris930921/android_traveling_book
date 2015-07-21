@@ -5,4 +5,5 @@
    * [VertialLinearManager](RecyclerView/simplestsample.md)
    * [HorizonLinearManager](RecyclerView/horizonlinearmanager.md)
    * [GridLayoutManager](RecyclerView/gridlayoutmanager.md)
+   * [StaggeredGridLayoutManager](recyclerview/staggeredgridlayoutmanager.md)
 
