@@ -1,6 +1,8 @@
 # Summary
 
 * [Introduction](README.md)
+* [Activity](activity/README.md)
+   * [生命週期](activity/lifecycle.md)
 * [XML排版初探](xml/README.md)
    * [常用框架](xml/userfult_framework.md)
 * [RecyclerView](chapter01/README.md)
