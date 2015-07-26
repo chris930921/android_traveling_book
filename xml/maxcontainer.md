@@ -1,6 +1,6 @@
 ## 初次開啟專案時，Android Project 會生成以下檔案
 
-## activity_main.xml
+#### activity_main.xml
 
 ```xml
 <RelativeLayout
@@ -13,7 +13,6 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     android:paddingBottom="@dimen/activity_vertical_margin"
     tools:context=".MainActivity">
-
 </RelativeLayout>
 
 ```
@@ -22,14 +21,12 @@
 * android:layout_width 最大框架 **寬度填滿 (match_parent)** 整個視窗。
 * android:layout_height 最大框架 **高度填滿 (match_parent)** 整個視窗。
 * android:paddingLeft、Right、Top、Bottom 設定 **框架邊框和內容有之間的內距**
-* @dimen/activity_horizontal_margin Android 的預設內距大小。
-* tools:context 
+* @dimen/activity_horizontal_margin 是 Android 的**預設內距大小**。
+* tools:context 提供**設計階段**時，能夠讓 xml 套用 AndroidManifest.xml 中設定的樣式，並**顯示在預覽**中。
 
 
 
-## MainActivity.java
-
-
+#### MainActivity.java
 
 ```java
 
@@ -66,3 +63,5 @@ public class MainActivity extends ActionBarActivity {
 }
 
 ```
+* MainActivity extends ActionBarActivity，
+* OnCreate 一個APP畫面在程式上的進入點。

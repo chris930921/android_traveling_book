@@ -1,6 +1,9 @@
 # Summary
 
 * [Introduction](README.md)
+   * [作業系統](operatorsystem.md)
+   * [基本環境](environment.md)
+   * [整合開發環境 (IDE)](integrated_development_environment.md)
 * [Activity](activity/README.md)
    * [生命週期](activity/lifecycle.md)
 * [XML排版初探](xml/README.md)
