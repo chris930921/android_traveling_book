@@ -20,26 +20,28 @@
 * xmlns:tools 定義 tools 前輟，讓標籤可以使用 **tools:屬性名稱** 來做額外設定。
 * android:layout_width 最大框架 **寬度填滿 (match_parent)** 整個視窗。
 * android:layout_height 最大框架 **高度填滿 (match_parent)** 整個視窗。
-* android:paddingLeft、Right、Top、Bottom 設定 **框架邊框和內容有之間的內距**
+* android:paddingLeft、Right、Top、Bottom 設定 **框架邊框和內容之間的內距**
 * @dimen/activity_horizontal_margin 是 Android 的**預設內距大小**。
-* tools:context 提供**設計階段**時，能夠讓 xml 套用 AndroidManifest.xml 中設定的樣式，並**顯示在預覽**中。
+* tools:context 提供**設計階段**時，讓 xml 套用 AndroidManifest.xml 中設定的樣式，並**顯示在介面預覽畫面**中。
 
 
 
 #### MainActivity.java
 
 ```java
-
+//宣告這個 Class 為 Activity，可用來顯示畫面。
 public class MainActivity extends ActionBarActivity {
 
-    @Override
+    @Override //此畫面的程式進入點
     protected void onCreate(Bundle savedInstanceState) {
+        //先執行父類別中的onCreate方法。
         super.onCreate(savedInstanceState);
+        //用 R.layout.介面xml名稱設定畫面，來指定這個Activity要套用哪一個XML檔案來顯示介面。
         setContentView(R.layout.activity_main);
     }
 
 
-    @Override
+    @Override // ActionBar 的 Menu 初始化程式方法
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_main, menu);
@@ -63,5 +65,3 @@ public class MainActivity extends ActionBarActivity {
 }
 
 ```
-* MainActivity extends ActionBarActivity，
-* OnCreate 一個APP畫面在程式上的進入點。
