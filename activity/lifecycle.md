@@ -5,7 +5,7 @@
 * 此階段還不會顯示畫面
 
 #### onRestart
-* 
+
 
 #### onStart
 * Activiy 可見
