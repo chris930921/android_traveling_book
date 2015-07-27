@@ -10,14 +10,16 @@
 </LinearLayout>
 ```
 
+* android:gravity
 * 設定框架的內容的放置方向
-* center 水平垂直皆置中
-* center_vertical 垂直置中
-* center_horizontal 水平置中
-* top 置頂
-* left 置左
-* bottom 置底
-* right 置右
+* center *水平垂直皆置中*
+* center_vertical *垂直置中*
+* center_horizontal *水平置中*
+* top *置頂*
+* left *置左*
+* bottom *置底*
+* right *置右*
+
 
 ## 水平、垂直置中
 

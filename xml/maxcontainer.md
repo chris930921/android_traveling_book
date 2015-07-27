@@ -16,13 +16,26 @@
 </RelativeLayout>
 
 ```
-* xmlns:android 定義 android 前輟，讓標籤可以使用 **android:屬性名稱** 來設定元件或框架。
-* xmlns:tools 定義 tools 前輟，讓標籤可以使用 **tools:屬性名稱** 來做額外設定。
-* android:layout_width 最大框架 **寬度填滿 (match_parent)** 整個視窗。
-* android:layout_height 最大框架 **高度填滿 (match_parent)** 整個視窗。
-* android:paddingLeft、Right、Top、Bottom 設定 **框架邊框和內容之間的內距**
-* @dimen/activity_horizontal_margin 是 Android 的**預設內距大小**。
-* tools:context 提供**設計階段**時，讓 xml 套用 AndroidManifest.xml 中設定的樣式，並**顯示在介面預覽畫面**中。
+* xmlns:android
+* 定義 android 前輟，讓標籤可以使用 **android:屬性名稱** 來設定元件或框架。
+* -
+* xmlns:tools
+* 定義 tools 前輟，讓標籤可以使用 **tools:屬性名稱** 來做額外設定。
+* -
+* android:layout_width
+* 最大框架 **寬度填滿 (match_parent)** 整個視窗。
+* -
+* android:layout_height
+* 最大框架 **高度填滿 (match_parent)** 整個視窗。
+* -
+* android:paddingLeft、Right、Top、Bottom
+* 設定 **框架邊框和內容之間的內距**
+* -
+* @dimen/activity_horizontal_margin
+* Android 的**預設內距大小**。
+* -
+* tools:context
+* 提供**設計階段**時，讓 xml 套用 AndroidManifest.xml 中設定的樣式，並**顯示在介面預覽畫面**中。
 
 
 

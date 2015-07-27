@@ -9,9 +9,10 @@
  </LinearLayout>
 ```
 
-* android:orientation 決定是水平排列或是垂直排列
-* vertical 垂直排列
-* horizontal 水平排列
+* android:orientation
+* 決定是水平排列或是垂直排列
+* vertical *垂直排列*
+* horizontal *水平排列*
 
 ### 垂直排列 Button
 
