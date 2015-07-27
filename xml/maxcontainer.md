@@ -41,14 +41,14 @@ public class MainActivity extends ActionBarActivity {
     }
 
 
-    @Override // ActionBar 的 Menu 初始化程式方法
+    @Override // ActionBar 的 Menu 初始化方法
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_main, menu);
         return true;
     }
 
-    @Override
+    @Override // 每個 Menu Item 被點擊時執行的方法
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle action bar item clicks here. The action bar will
         // automatically handle clicks on the Home/Up button, so long
