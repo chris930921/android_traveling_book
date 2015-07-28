@@ -21,6 +21,7 @@
 * [Toast](toast/README.md)
    * [Toast 使用方式 ](toast/toastshow.md)
    * [Toast 客製化介面](toast/toastcustomsize.md)
+* [Log](log/README.md)
 * [RecyclerView](chapter01/README.md)
    * [HorizonLinearManager](chapter01/horizonlinearmanager.md)
    * [VertialLinearManager](chapter01/vertiallinearmanager.md)
