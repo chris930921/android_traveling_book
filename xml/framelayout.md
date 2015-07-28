@@ -10,10 +10,12 @@
         android:layout_width="300dip"
         android:layout_height="300dip"
         android:background="#0000ff" />
+
     <Button
         android:layout_width="200dip"
         android:layout_height="200dip"
         android:background="#00ff00" />
+
     <Button
         android:layout_width="100dip"
         android:layout_height="100dip"
