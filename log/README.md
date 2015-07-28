@@ -66,7 +66,7 @@ public class MainActivity extends Activity{
 
 ```
 
-## 判斷進入流程
+## 印出變數
 ```java
 public class MainActivity extends Activity{
 
@@ -75,16 +75,8 @@ public class MainActivity extends Activity{
         super.onCreate(savedInstanceState);
 
         int random = (int)(Math.random()*100);
-
-        Log.i("AppLogTest", "開始判斷");
-        if(random %2 == 0){
-            Log.i("AppLogTest", "偶數");
-        }else{
-            Log.i("AppLogTest", "奇數");
-        }
-
+        Log.i("AppLogTest", "亂數值: " + random );
     }
 }
-
 ```
 
