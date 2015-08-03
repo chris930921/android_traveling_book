@@ -38,6 +38,7 @@ public class OtherActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        //第二個 Activity 的顯示內容。
         TextView showText = new TextView(this);
         showText.setText("OtherActivity");
         setContentView(showText);
@@ -63,7 +64,12 @@ public class MainActivity extends Activity {
         toNextPage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent goOtherActivity = new Intent(activity, OtherActivity.class);
+                // Android 將意圖這個概念包裝成一個類別，用來將 Activity 或 Service 以指定的方式開啟。
+                Intent goOtherActivity;
+                // 第一個參數放入現在的 Activity。
+                // 第二個參數是 Activty 類別的 class 物件，指定要進入的 Activty 是哪一個。
+                goOtherActivity = new Intent(activity, OtherActivity.class);
+                // 啟動另一個 Actiity。
                 activity.startActivity(goOtherActivity);
             }
         });
