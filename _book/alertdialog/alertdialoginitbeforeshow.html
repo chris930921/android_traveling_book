@@ -4,7 +4,7 @@
     <head>
         
         <meta charset="UTF-8">
-        <title>StaggeredGridLayoutManager | Android 教學</title>
+        <title>AlertDialog 先建立後顯示 | Android 教學</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
         <meta name="generator" content="GitBook 1.0.3">
@@ -18,10 +18,10 @@
     
     
     
-    <link rel="next" href="../actionbar/README.html" />
+    <link rel="next" href="../alertdialog/dialoginterfaceonclicklistener.html" />
     
     
-    <link rel="prev" href="../chapter01/gridlayoutmanager.html" />
+    <link rel="prev" href="../alertdialog/alertdialogsampleanalysis.html" />
     
 
         
@@ -33,7 +33,7 @@
 
 
         
-    <div class="book"  data-level="6.4" data-basepath=".." data-revision="1438684977732">
+    <div class="book"  data-level="5.3" data-basepath=".." data-revision="1438684977732">
     
 
 <div class="book-summary">
@@ -570,7 +570,7 @@
         </li>
     
         
-        <li class="chapter " data-level="5.3" data-path="alertdialog/alertdialoginitbeforeshow.html">
+        <li class="chapter active" data-level="5.3" data-path="alertdialog/alertdialoginitbeforeshow.html">
             
                 
                     <a href="../alertdialog/alertdialoginitbeforeshow.html">
@@ -672,7 +672,7 @@
         </li>
     
         
-        <li class="chapter active" data-level="6.4" data-path="chapter01/staggeredgridlayoutmanager.html">
+        <li class="chapter " data-level="6.4" data-path="chapter01/staggeredgridlayoutmanager.html">
             
                 
                     <a href="../chapter01/staggeredgridlayoutmanager.html">
@@ -819,150 +819,37 @@
                 <div class="page-inner">
                 
                 
-                    <section class="normal" id="section-gitbook_5">
+                    <section class="normal" id="section-gitbook_18">
                     
-                        <pre><code class="lang-java">    <span class="hljs-keyword">private</span> Activity activity;
+                        <h1 id="alertdialog-">AlertDialog 先建立後顯示</h1>
+<pre><code class="lang-java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MainActivity</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Activity</span> </span>{
+    <span class="hljs-keyword">private</span> AlertDialog dialog;
 
     <span class="hljs-annotation">@Override</span>
     <span class="hljs-function"><span class="hljs-keyword">protected</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onCreate</span><span class="hljs-params">(Bundle savedInstanceState)</span> </span>{
         <span class="hljs-keyword">super</span>.onCreate(savedInstanceState);
-        <span class="hljs-keyword">this</span>.activity = <span class="hljs-keyword">this</span>;
 
-        <span class="hljs-keyword">final</span> String[] content = {
-                <span class="hljs-string">"直到我膝蓋中了一箭"</span>,
-                <span class="hljs-string">"我本來不想用這招的"</span>,
-                <span class="hljs-string">"眼鏡才是本體"</span>,
-                <span class="hljs-string">"你們聊，我先走了"</span>,
-                <span class="hljs-string">"你不是還有生命嗎?"</span>,
-                <span class="hljs-string">"你有沒有感覺到我的..."</span>,
-                <span class="hljs-string">"你為什麼不問問神奇海螺呢？"</span>,
-                <span class="hljs-string">"哥哥你好英俊"</span>,
-                <span class="hljs-string">"外國人都是很NICE的，這其中一定有什麼誤會"</span>,
-                <span class="hljs-string">"女俠饒命呀！"</span>,
-                <span class="hljs-string">"師父，救我啊!"</span>,
-                <span class="hljs-string">"從此君王不早朝"</span>,
-                <span class="hljs-string">"德國的科學力是世界第一"</span>,
-                <span class="hljs-string">"我佛你"</span>,
-                <span class="hljs-string">"我現在的心情你怎麼可能瞭解"</span>,
-                <span class="hljs-string">"我要寫個慘字"</span>,
-                <span class="hljs-string">"換個髮型就是新人物了"</span>,
-                <span class="hljs-string">"時代的眼淚"</span>,
-                <span class="hljs-string">"有奇怪的東西混進去了"</span>,
-                <span class="hljs-string">"沒圖沒真相"</span>
-        };
-        ViewGroup.LayoutParams params = <span class="hljs-keyword">new</span> ViewGroup.LayoutParams(
-                ViewGroup.LayoutParams.MATCH_PARENT,
-                ViewGroup.LayoutParams.MATCH_PARENT);
+        AlertDialog.Builder builder = <span class="hljs-keyword">new</span> AlertDialog.Builder(<span class="hljs-keyword">this</span>);
+        builder.setTitle(<span class="hljs-string">"標題"</span>);
+        builder.setMessage(<span class="hljs-string">"內容"</span>);
 
-        <span class="hljs-comment">// 非固定格狀佈局，每一列或欄的高度、寬度都不同。</span>
-        <span class="hljs-comment">// 第一個參數是一列或一欄多少元件。</span>
-        <span class="hljs-comment">// 第三個參數是設定列表滑動方向是 垂直Vertial(填滿列) 或 水平Horizontal(填滿欄)。</span>
-        StaggeredGridLayoutManager linearManager = <span class="hljs-keyword">new</span> StaggeredGridLayoutManager(<span class="hljs-number">3</span>, StaggeredGridLayoutManager.VERTICAL);
+        <span class="hljs-comment">//利用 create() 方法，先將視窗建立起來但不顯示。</span>
+        dialog = builder.create();
 
-        DefaultItemAnimator animator = <span class="hljs-keyword">new</span> DefaultItemAnimator();
+        Button button = <span class="hljs-keyword">new</span> Button(<span class="hljs-keyword">this</span>);
+        button.setText(<span class="hljs-string">"顯示視窗"</span>);
+        setContentView(button);
 
-        RecyclerView.Adapter adapter = <span class="hljs-keyword">new</span> RecyclerView.Adapter() {
+        button.setOnClickListener(<span class="hljs-keyword">new</span> View.OnClickListener() {
             <span class="hljs-annotation">@Override</span>
-            <span class="hljs-keyword">public</span> RecyclerView.<span class="hljs-function">ViewHolder <span class="hljs-title">onCreateViewHolder</span><span class="hljs-params">(ViewGroup viewGroup, <span class="hljs-keyword">int</span> i)</span> </span>{
-                Button v = <span class="hljs-keyword">new</span> Button(activity);
-                RecyclerView.ViewHolder viewHolder = <span class="hljs-keyword">new</span> RecyclerView.ViewHolder(v) {
-                };
-                <span class="hljs-keyword">return</span> viewHolder;
+            <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onClick</span><span class="hljs-params">(View view)</span> </span>{
+                <span class="hljs-comment">// 利用 AlertDialog 物件的 show() 方法，顯示視窗。</span>
+                dialog.show();
             }
-
-            <span class="hljs-annotation">@Override</span>
-            <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onBindViewHolder</span><span class="hljs-params">(RecyclerView.ViewHolder viewHolder, <span class="hljs-keyword">int</span> i)</span> </span>{
-                Button v = (Button) viewHolder.itemView;
-                v.setText(content[i]);
-            }
-
-            <span class="hljs-annotation">@Override</span>
-            <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span> <span class="hljs-title">getItemCount</span><span class="hljs-params">()</span> </span>{
-                <span class="hljs-keyword">return</span> <span class="hljs-number">20</span>;
-            }
-        };
-
-        RecyclerView v = <span class="hljs-keyword">new</span> RecyclerView(<span class="hljs-keyword">this</span>);
-        v.setLayoutParams(params);
-        v.setLayoutManager(linearManager);
-        v.setItemAnimator(animator);
-        v.setAdapter(adapter);
-
-        setContentView(v);
+        });
     }
+}
 </code></pre>
-<p><img src="picture/05.png" alt=""></p>
-<pre><code class="lang-java">    <span class="hljs-keyword">private</span> Activity activity;
-
-    <span class="hljs-annotation">@Override</span>
-    <span class="hljs-function"><span class="hljs-keyword">protected</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onCreate</span><span class="hljs-params">(Bundle savedInstanceState)</span> </span>{
-        <span class="hljs-keyword">super</span>.onCreate(savedInstanceState);
-        <span class="hljs-keyword">this</span>.activity = <span class="hljs-keyword">this</span>;
-
-        <span class="hljs-keyword">final</span> String[] content = {
-                <span class="hljs-string">"直到我膝蓋中了一箭"</span>,
-                <span class="hljs-string">"我本來不想用這招的"</span>,
-                <span class="hljs-string">"眼鏡才是本體"</span>,
-                <span class="hljs-string">"你們聊，我先走了"</span>,
-                <span class="hljs-string">"你不是還有生命嗎?"</span>,
-                <span class="hljs-string">"你有沒有感覺到我的..."</span>,
-                <span class="hljs-string">"你為什麼不問問神奇海螺呢？"</span>,
-                <span class="hljs-string">"哥哥你好英俊"</span>,
-                <span class="hljs-string">"外國人都是很NICE的，這其中一定有什麼誤會"</span>,
-                <span class="hljs-string">"女俠饒命呀！"</span>,
-                <span class="hljs-string">"師父，救我啊!"</span>,
-                <span class="hljs-string">"從此君王不早朝"</span>,
-                <span class="hljs-string">"德國的科學力是世界第一"</span>,
-                <span class="hljs-string">"我佛你"</span>,
-                <span class="hljs-string">"我現在的心情你怎麼可能瞭解"</span>,
-                <span class="hljs-string">"我要寫個慘字"</span>,
-                <span class="hljs-string">"換個髮型就是新人物了"</span>,
-                <span class="hljs-string">"時代的眼淚"</span>,
-                <span class="hljs-string">"有奇怪的東西混進去了"</span>,
-                <span class="hljs-string">"沒圖沒真相"</span>
-        };
-        ViewGroup.LayoutParams params = <span class="hljs-keyword">new</span> ViewGroup.LayoutParams(
-                ViewGroup.LayoutParams.MATCH_PARENT,
-                ViewGroup.LayoutParams.MATCH_PARENT);
-
-        <span class="hljs-comment">// 非固定格狀佈局，每一列或欄的高度、寬度都不同。</span>
-        <span class="hljs-comment">// 第一個參數是一列或一欄多少元件。</span>
-        <span class="hljs-comment">// 第三個參數是設定列表滑動方向是 垂直Vertial(填滿列) 或 水平Horizontal(填滿欄)。</span>
-        StaggeredGridLayoutManager linearManager = <span class="hljs-keyword">new</span> StaggeredGridLayoutManager(<span class="hljs-number">3</span>, StaggeredGridLayoutManager.HORIZONTAL);
-
-        DefaultItemAnimator animator = <span class="hljs-keyword">new</span> DefaultItemAnimator();
-
-        RecyclerView.Adapter adapter = <span class="hljs-keyword">new</span> RecyclerView.Adapter() {
-            <span class="hljs-annotation">@Override</span>
-            <span class="hljs-keyword">public</span> RecyclerView.<span class="hljs-function">ViewHolder <span class="hljs-title">onCreateViewHolder</span><span class="hljs-params">(ViewGroup viewGroup, <span class="hljs-keyword">int</span> i)</span> </span>{
-                Button v = <span class="hljs-keyword">new</span> Button(activity);
-                RecyclerView.ViewHolder viewHolder = <span class="hljs-keyword">new</span> RecyclerView.ViewHolder(v) {
-                };
-                <span class="hljs-keyword">return</span> viewHolder;
-            }
-
-            <span class="hljs-annotation">@Override</span>
-            <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onBindViewHolder</span><span class="hljs-params">(RecyclerView.ViewHolder viewHolder, <span class="hljs-keyword">int</span> i)</span> </span>{
-                Button v = (Button) viewHolder.itemView;
-                v.setText(content[i]);
-            }
-
-            <span class="hljs-annotation">@Override</span>
-            <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span> <span class="hljs-title">getItemCount</span><span class="hljs-params">()</span> </span>{
-                <span class="hljs-keyword">return</span> <span class="hljs-number">20</span>;
-            }
-        };
-
-        RecyclerView v = <span class="hljs-keyword">new</span> RecyclerView(<span class="hljs-keyword">this</span>);
-        v.setLayoutParams(params);
-        v.setLayoutManager(linearManager);
-        v.setItemAnimator(animator);
-        v.setAdapter(adapter);
-
-        setContentView(v);
-    }
-</code></pre>
-<p><img src="picture/06.png" alt=""></p>
 
                     
                     </section>
@@ -973,10 +860,10 @@
         </div>
 
         
-        <a href="../chapter01/gridlayoutmanager.html" class="navigation navigation-prev " aria-label="Previous page: GridLayoutManager"><i class="fa fa-angle-left"></i></a>
+        <a href="../alertdialog/alertdialogsampleanalysis.html" class="navigation navigation-prev " aria-label="Previous page: AlertDialog 快速範例拆解"><i class="fa fa-angle-left"></i></a>
         
         
-        <a href="../actionbar/README.html" class="navigation navigation-next " aria-label="Next page: ActionBar"><i class="fa fa-angle-right"></i></a>
+        <a href="../alertdialog/dialoginterfaceonclicklistener.html" class="navigation navigation-next " aria-label="Next page: AlertDialog OnClickListener 方法分析"><i class="fa fa-angle-right"></i></a>
         
     </div>
 </div>

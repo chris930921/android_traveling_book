@@ -4,7 +4,7 @@
     <head>
         
         <meta charset="UTF-8">
-        <title>StaggeredGridLayoutManager | Android 教學</title>
+        <title>LinearLayout 重心設定 | Android 教學</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
         <meta name="generator" content="GitBook 1.0.3">
@@ -18,10 +18,10 @@
     
     
     
-    <link rel="next" href="../actionbar/README.html" />
+    <link rel="next" href="../xml/linearlayoutpercentage.html" />
     
     
-    <link rel="prev" href="../chapter01/gridlayoutmanager.html" />
+    <link rel="prev" href="../xml/linearlayout.html" />
     
 
         
@@ -33,7 +33,7 @@
 
 
         
-    <div class="book"  data-level="6.4" data-basepath=".." data-revision="1438684977732">
+    <div class="book"  data-level="2.5" data-basepath=".." data-revision="1438684977732">
     
 
 <div class="book-summary">
@@ -334,7 +334,7 @@
         </li>
     
         
-        <li class="chapter " data-level="2.5" data-path="xml/linearlayout_gravity.html">
+        <li class="chapter active" data-level="2.5" data-path="xml/linearlayout_gravity.html">
             
                 
                     <a href="../xml/linearlayout_gravity.html">
@@ -672,7 +672,7 @@
         </li>
     
         
-        <li class="chapter active" data-level="6.4" data-path="chapter01/staggeredgridlayoutmanager.html">
+        <li class="chapter " data-level="6.4" data-path="chapter01/staggeredgridlayoutmanager.html">
             
                 
                     <a href="../chapter01/staggeredgridlayoutmanager.html">
@@ -819,150 +819,108 @@
                 <div class="page-inner">
                 
                 
-                    <section class="normal" id="section-gitbook_5">
+                    <section class="normal" id="section-gitbook_35">
                     
-                        <pre><code class="lang-java">    <span class="hljs-keyword">private</span> Activity activity;
+                        <h1 id="linearlayout-">LinearLayout 重心設定</h1>
+<pre><code class="lang-xml"><span class="hljs-tag">&lt;<span class="hljs-title">LinearLayout</span>
+    <span class="hljs-attribute">android:layout_width</span>=<span class="hljs-value">"match_parent"</span>
+    <span class="hljs-attribute">android:layout_height</span>=<span class="hljs-value">"match_parent"</span>
+    <span class="hljs-attribute">android:orientation</span>=<span class="hljs-value">"vertical"</span>
 
-    <span class="hljs-annotation">@Override</span>
-    <span class="hljs-function"><span class="hljs-keyword">protected</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onCreate</span><span class="hljs-params">(Bundle savedInstanceState)</span> </span>{
-        <span class="hljs-keyword">super</span>.onCreate(savedInstanceState);
-        <span class="hljs-keyword">this</span>.activity = <span class="hljs-keyword">this</span>;
-
-        <span class="hljs-keyword">final</span> String[] content = {
-                <span class="hljs-string">"直到我膝蓋中了一箭"</span>,
-                <span class="hljs-string">"我本來不想用這招的"</span>,
-                <span class="hljs-string">"眼鏡才是本體"</span>,
-                <span class="hljs-string">"你們聊，我先走了"</span>,
-                <span class="hljs-string">"你不是還有生命嗎?"</span>,
-                <span class="hljs-string">"你有沒有感覺到我的..."</span>,
-                <span class="hljs-string">"你為什麼不問問神奇海螺呢？"</span>,
-                <span class="hljs-string">"哥哥你好英俊"</span>,
-                <span class="hljs-string">"外國人都是很NICE的，這其中一定有什麼誤會"</span>,
-                <span class="hljs-string">"女俠饒命呀！"</span>,
-                <span class="hljs-string">"師父，救我啊!"</span>,
-                <span class="hljs-string">"從此君王不早朝"</span>,
-                <span class="hljs-string">"德國的科學力是世界第一"</span>,
-                <span class="hljs-string">"我佛你"</span>,
-                <span class="hljs-string">"我現在的心情你怎麼可能瞭解"</span>,
-                <span class="hljs-string">"我要寫個慘字"</span>,
-                <span class="hljs-string">"換個髮型就是新人物了"</span>,
-                <span class="hljs-string">"時代的眼淚"</span>,
-                <span class="hljs-string">"有奇怪的東西混進去了"</span>,
-                <span class="hljs-string">"沒圖沒真相"</span>
-        };
-        ViewGroup.LayoutParams params = <span class="hljs-keyword">new</span> ViewGroup.LayoutParams(
-                ViewGroup.LayoutParams.MATCH_PARENT,
-                ViewGroup.LayoutParams.MATCH_PARENT);
-
-        <span class="hljs-comment">// 非固定格狀佈局，每一列或欄的高度、寬度都不同。</span>
-        <span class="hljs-comment">// 第一個參數是一列或一欄多少元件。</span>
-        <span class="hljs-comment">// 第三個參數是設定列表滑動方向是 垂直Vertial(填滿列) 或 水平Horizontal(填滿欄)。</span>
-        StaggeredGridLayoutManager linearManager = <span class="hljs-keyword">new</span> StaggeredGridLayoutManager(<span class="hljs-number">3</span>, StaggeredGridLayoutManager.VERTICAL);
-
-        DefaultItemAnimator animator = <span class="hljs-keyword">new</span> DefaultItemAnimator();
-
-        RecyclerView.Adapter adapter = <span class="hljs-keyword">new</span> RecyclerView.Adapter() {
-            <span class="hljs-annotation">@Override</span>
-            <span class="hljs-keyword">public</span> RecyclerView.<span class="hljs-function">ViewHolder <span class="hljs-title">onCreateViewHolder</span><span class="hljs-params">(ViewGroup viewGroup, <span class="hljs-keyword">int</span> i)</span> </span>{
-                Button v = <span class="hljs-keyword">new</span> Button(activity);
-                RecyclerView.ViewHolder viewHolder = <span class="hljs-keyword">new</span> RecyclerView.ViewHolder(v) {
-                };
-                <span class="hljs-keyword">return</span> viewHolder;
-            }
-
-            <span class="hljs-annotation">@Override</span>
-            <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onBindViewHolder</span><span class="hljs-params">(RecyclerView.ViewHolder viewHolder, <span class="hljs-keyword">int</span> i)</span> </span>{
-                Button v = (Button) viewHolder.itemView;
-                v.setText(content[i]);
-            }
-
-            <span class="hljs-annotation">@Override</span>
-            <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span> <span class="hljs-title">getItemCount</span><span class="hljs-params">()</span> </span>{
-                <span class="hljs-keyword">return</span> <span class="hljs-number">20</span>;
-            }
-        };
-
-        RecyclerView v = <span class="hljs-keyword">new</span> RecyclerView(<span class="hljs-keyword">this</span>);
-        v.setLayoutParams(params);
-        v.setLayoutManager(linearManager);
-        v.setItemAnimator(animator);
-        v.setAdapter(adapter);
-
-        setContentView(v);
-    }
+    <span class="hljs-attribute">android:gravity</span>=<span class="hljs-value">"left"</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-title">LinearLayout</span>&gt;</span>
 </code></pre>
-<p><img src="picture/05.png" alt=""></p>
-<pre><code class="lang-java">    <span class="hljs-keyword">private</span> Activity activity;
+<ul>
+<li>android:gravity</li>
+<li>設定框架的內容的放置方向</li>
+<li>center <em>水平垂直皆置中</em></li>
+<li>center_vertical <em>垂直置中</em></li>
+<li>center_horizontal <em>水平置中</em></li>
+<li>top <em>置頂</em></li>
+<li>left <em>置左</em></li>
+<li>bottom <em>置底</em></li>
+<li>right <em>置右</em></li>
+</ul>
+<h2 id="">水平、垂直置中</h2>
+<pre><code class="lang-xml"><span class="hljs-tag">&lt;<span class="hljs-title">LinearLayout</span>
+    <span class="hljs-attribute">android:layout_width</span>=<span class="hljs-value">"match_parent"</span>
+    <span class="hljs-attribute">android:layout_height</span>=<span class="hljs-value">"match_parent"</span>
+    <span class="hljs-attribute">android:orientation</span>=<span class="hljs-value">"vertical"</span>
+    <span class="hljs-attribute">android:gravity</span>=<span class="hljs-value">"center_vertical"</span>&gt;</span>
 
-    <span class="hljs-annotation">@Override</span>
-    <span class="hljs-function"><span class="hljs-keyword">protected</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onCreate</span><span class="hljs-params">(Bundle savedInstanceState)</span> </span>{
-        <span class="hljs-keyword">super</span>.onCreate(savedInstanceState);
-        <span class="hljs-keyword">this</span>.activity = <span class="hljs-keyword">this</span>;
+    <span class="hljs-tag">&lt;<span class="hljs-title">Button</span>
+        <span class="hljs-attribute">android:layout_width</span>=<span class="hljs-value">"wrap_content"</span>
+        <span class="hljs-attribute">android:layout_height</span>=<span class="hljs-value">"wrap_content"</span>
+        <span class="hljs-attribute">android:text</span>=<span class="hljs-value">"Button 1"</span> /&gt;</span>
 
-        <span class="hljs-keyword">final</span> String[] content = {
-                <span class="hljs-string">"直到我膝蓋中了一箭"</span>,
-                <span class="hljs-string">"我本來不想用這招的"</span>,
-                <span class="hljs-string">"眼鏡才是本體"</span>,
-                <span class="hljs-string">"你們聊，我先走了"</span>,
-                <span class="hljs-string">"你不是還有生命嗎?"</span>,
-                <span class="hljs-string">"你有沒有感覺到我的..."</span>,
-                <span class="hljs-string">"你為什麼不問問神奇海螺呢？"</span>,
-                <span class="hljs-string">"哥哥你好英俊"</span>,
-                <span class="hljs-string">"外國人都是很NICE的，這其中一定有什麼誤會"</span>,
-                <span class="hljs-string">"女俠饒命呀！"</span>,
-                <span class="hljs-string">"師父，救我啊!"</span>,
-                <span class="hljs-string">"從此君王不早朝"</span>,
-                <span class="hljs-string">"德國的科學力是世界第一"</span>,
-                <span class="hljs-string">"我佛你"</span>,
-                <span class="hljs-string">"我現在的心情你怎麼可能瞭解"</span>,
-                <span class="hljs-string">"我要寫個慘字"</span>,
-                <span class="hljs-string">"換個髮型就是新人物了"</span>,
-                <span class="hljs-string">"時代的眼淚"</span>,
-                <span class="hljs-string">"有奇怪的東西混進去了"</span>,
-                <span class="hljs-string">"沒圖沒真相"</span>
-        };
-        ViewGroup.LayoutParams params = <span class="hljs-keyword">new</span> ViewGroup.LayoutParams(
-                ViewGroup.LayoutParams.MATCH_PARENT,
-                ViewGroup.LayoutParams.MATCH_PARENT);
-
-        <span class="hljs-comment">// 非固定格狀佈局，每一列或欄的高度、寬度都不同。</span>
-        <span class="hljs-comment">// 第一個參數是一列或一欄多少元件。</span>
-        <span class="hljs-comment">// 第三個參數是設定列表滑動方向是 垂直Vertial(填滿列) 或 水平Horizontal(填滿欄)。</span>
-        StaggeredGridLayoutManager linearManager = <span class="hljs-keyword">new</span> StaggeredGridLayoutManager(<span class="hljs-number">3</span>, StaggeredGridLayoutManager.HORIZONTAL);
-
-        DefaultItemAnimator animator = <span class="hljs-keyword">new</span> DefaultItemAnimator();
-
-        RecyclerView.Adapter adapter = <span class="hljs-keyword">new</span> RecyclerView.Adapter() {
-            <span class="hljs-annotation">@Override</span>
-            <span class="hljs-keyword">public</span> RecyclerView.<span class="hljs-function">ViewHolder <span class="hljs-title">onCreateViewHolder</span><span class="hljs-params">(ViewGroup viewGroup, <span class="hljs-keyword">int</span> i)</span> </span>{
-                Button v = <span class="hljs-keyword">new</span> Button(activity);
-                RecyclerView.ViewHolder viewHolder = <span class="hljs-keyword">new</span> RecyclerView.ViewHolder(v) {
-                };
-                <span class="hljs-keyword">return</span> viewHolder;
-            }
-
-            <span class="hljs-annotation">@Override</span>
-            <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onBindViewHolder</span><span class="hljs-params">(RecyclerView.ViewHolder viewHolder, <span class="hljs-keyword">int</span> i)</span> </span>{
-                Button v = (Button) viewHolder.itemView;
-                v.setText(content[i]);
-            }
-
-            <span class="hljs-annotation">@Override</span>
-            <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span> <span class="hljs-title">getItemCount</span><span class="hljs-params">()</span> </span>{
-                <span class="hljs-keyword">return</span> <span class="hljs-number">20</span>;
-            }
-        };
-
-        RecyclerView v = <span class="hljs-keyword">new</span> RecyclerView(<span class="hljs-keyword">this</span>);
-        v.setLayoutParams(params);
-        v.setLayoutManager(linearManager);
-        v.setItemAnimator(animator);
-        v.setAdapter(adapter);
-
-        setContentView(v);
-    }
+<span class="hljs-tag">&lt;/<span class="hljs-title">LinearLayout</span>&gt;</span>
 </code></pre>
-<p><img src="picture/06.png" alt=""></p>
+<pre><code class="lang-xml"><span class="hljs-tag">&lt;<span class="hljs-title">LinearLayout</span>
+    <span class="hljs-attribute">android:layout_width</span>=<span class="hljs-value">"match_parent"</span>
+    <span class="hljs-attribute">android:layout_height</span>=<span class="hljs-value">"match_parent"</span>
+    <span class="hljs-attribute">android:orientation</span>=<span class="hljs-value">"vertical"</span>
+    <span class="hljs-attribute">android:gravity</span>=<span class="hljs-value">"center_horizontal"</span>&gt;</span>
+
+    <span class="hljs-tag">&lt;<span class="hljs-title">Button</span>
+        <span class="hljs-attribute">android:layout_width</span>=<span class="hljs-value">"wrap_content"</span>
+        <span class="hljs-attribute">android:layout_height</span>=<span class="hljs-value">"wrap_content"</span>
+        <span class="hljs-attribute">android:text</span>=<span class="hljs-value">"Button 1"</span> /&gt;</span>
+
+<span class="hljs-tag">&lt;/<span class="hljs-title">LinearLayout</span>&gt;</span>
+</code></pre>
+<pre><code class="lang-xml"><span class="hljs-tag">&lt;<span class="hljs-title">LinearLayout</span>
+    <span class="hljs-attribute">android:layout_width</span>=<span class="hljs-value">"match_parent"</span>
+    <span class="hljs-attribute">android:layout_height</span>=<span class="hljs-value">"match_parent"</span>
+    <span class="hljs-attribute">android:orientation</span>=<span class="hljs-value">"vertical"</span>
+    <span class="hljs-attribute">android:gravity</span>=<span class="hljs-value">"center"</span>&gt;</span>
+
+    <span class="hljs-tag">&lt;<span class="hljs-title">Button</span>
+        <span class="hljs-attribute">android:layout_width</span>=<span class="hljs-value">"wrap_content"</span>
+        <span class="hljs-attribute">android:layout_height</span>=<span class="hljs-value">"wrap_content"</span>
+        <span class="hljs-attribute">android:text</span>=<span class="hljs-value">"Button 1"</span> /&gt;</span>
+
+<span class="hljs-tag">&lt;/<span class="hljs-title">LinearLayout</span>&gt;</span>
+</code></pre>
+<h2 id="-or-">透過 OR 運算子組合重心</h2>
+<pre><code class="lang-xml"><span class="hljs-tag">&lt;<span class="hljs-title">LinearLayout</span>
+    <span class="hljs-attribute">android:layout_width</span>=<span class="hljs-value">"match_parent"</span>
+    <span class="hljs-attribute">android:layout_height</span>=<span class="hljs-value">"match_parent"</span>
+    <span class="hljs-attribute">android:orientation</span>=<span class="hljs-value">"vertical"</span>
+    <span class="hljs-attribute">android:gravity</span>=<span class="hljs-value">"top|right"</span>&gt;</span>
+
+    <span class="hljs-tag">&lt;<span class="hljs-title">Button</span>
+        <span class="hljs-attribute">android:layout_width</span>=<span class="hljs-value">"wrap_content"</span>
+        <span class="hljs-attribute">android:layout_height</span>=<span class="hljs-value">"wrap_content"</span>
+        <span class="hljs-attribute">android:text</span>=<span class="hljs-value">"Button 1"</span> /&gt;</span>
+
+<span class="hljs-tag">&lt;/<span class="hljs-title">LinearLayout</span>&gt;</span>
+</code></pre>
+<pre><code class="lang-xml"><span class="hljs-tag">&lt;<span class="hljs-title">LinearLayout</span>
+    <span class="hljs-attribute">android:layout_width</span>=<span class="hljs-value">"match_parent"</span>
+    <span class="hljs-attribute">android:layout_height</span>=<span class="hljs-value">"match_parent"</span>
+    <span class="hljs-attribute">android:orientation</span>=<span class="hljs-value">"vertical"</span>
+    <span class="hljs-attribute">android:gravity</span>=<span class="hljs-value">"bottom|left"</span>&gt;</span>
+
+    <span class="hljs-tag">&lt;<span class="hljs-title">Button</span>
+        <span class="hljs-attribute">android:layout_width</span>=<span class="hljs-value">"wrap_content"</span>
+        <span class="hljs-attribute">android:layout_height</span>=<span class="hljs-value">"wrap_content"</span>
+        <span class="hljs-attribute">android:text</span>=<span class="hljs-value">"Button 1"</span> /&gt;</span>
+
+<span class="hljs-tag">&lt;/<span class="hljs-title">LinearLayout</span>&gt;</span>
+</code></pre>
+<pre><code class="lang-xml"><span class="hljs-tag">&lt;<span class="hljs-title">LinearLayout</span>
+    <span class="hljs-attribute">android:layout_width</span>=<span class="hljs-value">"match_parent"</span>
+    <span class="hljs-attribute">android:layout_height</span>=<span class="hljs-value">"match_parent"</span>
+    <span class="hljs-attribute">android:orientation</span>=<span class="hljs-value">"vertical"</span>
+    <span class="hljs-attribute">android:gravity</span>=<span class="hljs-value">"center_vertical|center_horizontal"</span>&gt;</span>
+
+    <span class="hljs-tag">&lt;<span class="hljs-title">Button</span>
+        <span class="hljs-attribute">android:layout_width</span>=<span class="hljs-value">"wrap_content"</span>
+        <span class="hljs-attribute">android:layout_height</span>=<span class="hljs-value">"wrap_content"</span>
+        <span class="hljs-attribute">android:text</span>=<span class="hljs-value">"Button 1"</span> /&gt;</span>
+
+<span class="hljs-tag">&lt;/<span class="hljs-title">LinearLayout</span>&gt;</span>
+</code></pre>
 
                     
                     </section>
@@ -973,10 +931,10 @@
         </div>
 
         
-        <a href="../chapter01/gridlayoutmanager.html" class="navigation navigation-prev " aria-label="Previous page: GridLayoutManager"><i class="fa fa-angle-left"></i></a>
+        <a href="../xml/linearlayout.html" class="navigation navigation-prev " aria-label="Previous page: LinearLayout 排列方式"><i class="fa fa-angle-left"></i></a>
         
         
-        <a href="../actionbar/README.html" class="navigation navigation-next " aria-label="Next page: ActionBar"><i class="fa fa-angle-right"></i></a>
+        <a href="../xml/linearlayoutpercentage.html" class="navigation navigation-next " aria-label="Next page: LinearLayout 比例分配"><i class="fa fa-angle-right"></i></a>
         
     </div>
 </div>

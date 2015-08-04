@@ -4,7 +4,7 @@
     <head>
         
         <meta charset="UTF-8">
-        <title>StaggeredGridLayoutManager | Android 教學</title>
+        <title>RelativeLayout 相對於子元件或子框架 | Android 教學</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
         <meta name="generator" content="GitBook 1.0.3">
@@ -18,10 +18,10 @@
     
     
     
-    <link rel="next" href="../actionbar/README.html" />
+    <link rel="next" href="../xml/framelayout.html" />
     
     
-    <link rel="prev" href="../chapter01/gridlayoutmanager.html" />
+    <link rel="prev" href="../xml/relativelayouttoparent.html" />
     
 
         
@@ -33,7 +33,7 @@
 
 
         
-    <div class="book"  data-level="6.4" data-basepath=".." data-revision="1438684977732">
+    <div class="book"  data-level="2.8" data-basepath=".." data-revision="1438684977732">
     
 
 <div class="book-summary">
@@ -382,7 +382,7 @@
         </li>
     
         
-        <li class="chapter " data-level="2.8" data-path="xml/relativelayouttootherchild.html">
+        <li class="chapter active" data-level="2.8" data-path="xml/relativelayouttootherchild.html">
             
                 
                     <a href="../xml/relativelayouttootherchild.html">
@@ -672,7 +672,7 @@
         </li>
     
         
-        <li class="chapter active" data-level="6.4" data-path="chapter01/staggeredgridlayoutmanager.html">
+        <li class="chapter " data-level="6.4" data-path="chapter01/staggeredgridlayoutmanager.html">
             
                 
                     <a href="../chapter01/staggeredgridlayoutmanager.html">
@@ -819,150 +819,203 @@
                 <div class="page-inner">
                 
                 
-                    <section class="normal" id="section-gitbook_5">
+                    <section class="normal" id="section-gitbook_38">
                     
-                        <pre><code class="lang-java">    <span class="hljs-keyword">private</span> Activity activity;
+                        <h1 id="relativelayout-">RelativeLayout 相對於子元件或子框架</h1>
+<h2 id="">基礎框架</h2>
+<pre><code class="lang-xml"><span class="hljs-tag">&lt;<span class="hljs-title">RelativeLayout</span>
+    <span class="hljs-attribute">android:layout_width</span>=<span class="hljs-value">"match_parent"</span>
+    <span class="hljs-attribute">android:layout_height</span>=<span class="hljs-value">"match_parent"</span>&gt;</span>
 
-    <span class="hljs-annotation">@Override</span>
-    <span class="hljs-function"><span class="hljs-keyword">protected</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onCreate</span><span class="hljs-params">(Bundle savedInstanceState)</span> </span>{
-        <span class="hljs-keyword">super</span>.onCreate(savedInstanceState);
-        <span class="hljs-keyword">this</span>.activity = <span class="hljs-keyword">this</span>;
+    <span class="hljs-tag">&lt;<span class="hljs-title">Button</span>
+        <span class="hljs-attribute">android:id</span>=<span class="hljs-value">"@+id/center_button"</span>
+        <span class="hljs-attribute">android:layout_width</span>=<span class="hljs-value">"200dp"</span>
+        <span class="hljs-attribute">android:layout_height</span>=<span class="hljs-value">"200dp"</span>
+        <span class="hljs-attribute">android:layout_centerInParent</span>=<span class="hljs-value">"true"</span>
+        <span class="hljs-attribute">android:text</span>=<span class="hljs-value">"Button 1"</span> /&gt;</span>
 
-        <span class="hljs-keyword">final</span> String[] content = {
-                <span class="hljs-string">"直到我膝蓋中了一箭"</span>,
-                <span class="hljs-string">"我本來不想用這招的"</span>,
-                <span class="hljs-string">"眼鏡才是本體"</span>,
-                <span class="hljs-string">"你們聊，我先走了"</span>,
-                <span class="hljs-string">"你不是還有生命嗎?"</span>,
-                <span class="hljs-string">"你有沒有感覺到我的..."</span>,
-                <span class="hljs-string">"你為什麼不問問神奇海螺呢？"</span>,
-                <span class="hljs-string">"哥哥你好英俊"</span>,
-                <span class="hljs-string">"外國人都是很NICE的，這其中一定有什麼誤會"</span>,
-                <span class="hljs-string">"女俠饒命呀！"</span>,
-                <span class="hljs-string">"師父，救我啊!"</span>,
-                <span class="hljs-string">"從此君王不早朝"</span>,
-                <span class="hljs-string">"德國的科學力是世界第一"</span>,
-                <span class="hljs-string">"我佛你"</span>,
-                <span class="hljs-string">"我現在的心情你怎麼可能瞭解"</span>,
-                <span class="hljs-string">"我要寫個慘字"</span>,
-                <span class="hljs-string">"換個髮型就是新人物了"</span>,
-                <span class="hljs-string">"時代的眼淚"</span>,
-                <span class="hljs-string">"有奇怪的東西混進去了"</span>,
-                <span class="hljs-string">"沒圖沒真相"</span>
-        };
-        ViewGroup.LayoutParams params = <span class="hljs-keyword">new</span> ViewGroup.LayoutParams(
-                ViewGroup.LayoutParams.MATCH_PARENT,
-                ViewGroup.LayoutParams.MATCH_PARENT);
+    <span class="hljs-tag">&lt;<span class="hljs-title">Button</span>
+        <span class="hljs-attribute">android:layout_width</span>=<span class="hljs-value">"100dp"</span>
+        <span class="hljs-attribute">android:layout_height</span>=<span class="hljs-value">"100dp"</span>
+        <span class="hljs-attribute">android:text</span>=<span class="hljs-value">"Button 2"</span> /&gt;</span>
 
-        <span class="hljs-comment">// 非固定格狀佈局，每一列或欄的高度、寬度都不同。</span>
-        <span class="hljs-comment">// 第一個參數是一列或一欄多少元件。</span>
-        <span class="hljs-comment">// 第三個參數是設定列表滑動方向是 垂直Vertial(填滿列) 或 水平Horizontal(填滿欄)。</span>
-        StaggeredGridLayoutManager linearManager = <span class="hljs-keyword">new</span> StaggeredGridLayoutManager(<span class="hljs-number">3</span>, StaggeredGridLayoutManager.VERTICAL);
-
-        DefaultItemAnimator animator = <span class="hljs-keyword">new</span> DefaultItemAnimator();
-
-        RecyclerView.Adapter adapter = <span class="hljs-keyword">new</span> RecyclerView.Adapter() {
-            <span class="hljs-annotation">@Override</span>
-            <span class="hljs-keyword">public</span> RecyclerView.<span class="hljs-function">ViewHolder <span class="hljs-title">onCreateViewHolder</span><span class="hljs-params">(ViewGroup viewGroup, <span class="hljs-keyword">int</span> i)</span> </span>{
-                Button v = <span class="hljs-keyword">new</span> Button(activity);
-                RecyclerView.ViewHolder viewHolder = <span class="hljs-keyword">new</span> RecyclerView.ViewHolder(v) {
-                };
-                <span class="hljs-keyword">return</span> viewHolder;
-            }
-
-            <span class="hljs-annotation">@Override</span>
-            <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onBindViewHolder</span><span class="hljs-params">(RecyclerView.ViewHolder viewHolder, <span class="hljs-keyword">int</span> i)</span> </span>{
-                Button v = (Button) viewHolder.itemView;
-                v.setText(content[i]);
-            }
-
-            <span class="hljs-annotation">@Override</span>
-            <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span> <span class="hljs-title">getItemCount</span><span class="hljs-params">()</span> </span>{
-                <span class="hljs-keyword">return</span> <span class="hljs-number">20</span>;
-            }
-        };
-
-        RecyclerView v = <span class="hljs-keyword">new</span> RecyclerView(<span class="hljs-keyword">this</span>);
-        v.setLayoutParams(params);
-        v.setLayoutManager(linearManager);
-        v.setItemAnimator(animator);
-        v.setAdapter(adapter);
-
-        setContentView(v);
-    }
+<span class="hljs-tag">&lt;/<span class="hljs-title">RelativeLayout</span>&gt;</span>
 </code></pre>
-<p><img src="picture/05.png" alt=""></p>
-<pre><code class="lang-java">    <span class="hljs-keyword">private</span> Activity activity;
+<ul>
+<li>android:id=&quot;@+id/...&quot;</li>
+<li>被對齊的子元件或子框架應該設定ID。</li>
+<li>設定ID的目的是為了讓其他的子元件或子框架有目標能對齊。</li>
+<li>其他子元件或子框架對設定目標時，ID不用有+號。</li>
+<li>中心按鈕較大(200x20)，對齊按鈕較小(100x100)，是為了加強上下左右對齊的效果。</li>
+</ul>
+<h2 id="">被對齊元件的上方，且左邊對齊。</h2>
+<pre><code class="lang-xml"><span class="hljs-tag">&lt;<span class="hljs-title">RelativeLayout</span>
+    <span class="hljs-attribute">android:layout_width</span>=<span class="hljs-value">"match_parent"</span>
+    <span class="hljs-attribute">android:layout_height</span>=<span class="hljs-value">"match_parent"</span>&gt;</span>
 
-    <span class="hljs-annotation">@Override</span>
-    <span class="hljs-function"><span class="hljs-keyword">protected</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onCreate</span><span class="hljs-params">(Bundle savedInstanceState)</span> </span>{
-        <span class="hljs-keyword">super</span>.onCreate(savedInstanceState);
-        <span class="hljs-keyword">this</span>.activity = <span class="hljs-keyword">this</span>;
+    <span class="hljs-tag">&lt;<span class="hljs-title">Button</span>
+        <span class="hljs-attribute">android:id</span>=<span class="hljs-value">"@+id/center_button"</span>
+        <span class="hljs-attribute">android:layout_width</span>=<span class="hljs-value">"200dp"</span>
+        <span class="hljs-attribute">android:layout_height</span>=<span class="hljs-value">"200dp"</span>
+        <span class="hljs-attribute">android:layout_centerInParent</span>=<span class="hljs-value">"true"</span>
+        <span class="hljs-attribute">android:text</span>=<span class="hljs-value">"Button 1"</span> /&gt;</span>
 
-        <span class="hljs-keyword">final</span> String[] content = {
-                <span class="hljs-string">"直到我膝蓋中了一箭"</span>,
-                <span class="hljs-string">"我本來不想用這招的"</span>,
-                <span class="hljs-string">"眼鏡才是本體"</span>,
-                <span class="hljs-string">"你們聊，我先走了"</span>,
-                <span class="hljs-string">"你不是還有生命嗎?"</span>,
-                <span class="hljs-string">"你有沒有感覺到我的..."</span>,
-                <span class="hljs-string">"你為什麼不問問神奇海螺呢？"</span>,
-                <span class="hljs-string">"哥哥你好英俊"</span>,
-                <span class="hljs-string">"外國人都是很NICE的，這其中一定有什麼誤會"</span>,
-                <span class="hljs-string">"女俠饒命呀！"</span>,
-                <span class="hljs-string">"師父，救我啊!"</span>,
-                <span class="hljs-string">"從此君王不早朝"</span>,
-                <span class="hljs-string">"德國的科學力是世界第一"</span>,
-                <span class="hljs-string">"我佛你"</span>,
-                <span class="hljs-string">"我現在的心情你怎麼可能瞭解"</span>,
-                <span class="hljs-string">"我要寫個慘字"</span>,
-                <span class="hljs-string">"換個髮型就是新人物了"</span>,
-                <span class="hljs-string">"時代的眼淚"</span>,
-                <span class="hljs-string">"有奇怪的東西混進去了"</span>,
-                <span class="hljs-string">"沒圖沒真相"</span>
-        };
-        ViewGroup.LayoutParams params = <span class="hljs-keyword">new</span> ViewGroup.LayoutParams(
-                ViewGroup.LayoutParams.MATCH_PARENT,
-                ViewGroup.LayoutParams.MATCH_PARENT);
+    <span class="hljs-tag">&lt;<span class="hljs-title">Button</span>
+        <span class="hljs-attribute">android:layout_width</span>=<span class="hljs-value">"100dp"</span>
+        <span class="hljs-attribute">android:layout_height</span>=<span class="hljs-value">"100dp"</span>
+        <span class="hljs-attribute">android:layout_above</span>=<span class="hljs-value">"@id/center_button"</span>
+        <span class="hljs-attribute">android:layout_alignLeft</span>=<span class="hljs-value">"@id/center_button"</span>
+        <span class="hljs-attribute">android:text</span>=<span class="hljs-value">"Button 2"</span> /&gt;</span>
 
-        <span class="hljs-comment">// 非固定格狀佈局，每一列或欄的高度、寬度都不同。</span>
-        <span class="hljs-comment">// 第一個參數是一列或一欄多少元件。</span>
-        <span class="hljs-comment">// 第三個參數是設定列表滑動方向是 垂直Vertial(填滿列) 或 水平Horizontal(填滿欄)。</span>
-        StaggeredGridLayoutManager linearManager = <span class="hljs-keyword">new</span> StaggeredGridLayoutManager(<span class="hljs-number">3</span>, StaggeredGridLayoutManager.HORIZONTAL);
-
-        DefaultItemAnimator animator = <span class="hljs-keyword">new</span> DefaultItemAnimator();
-
-        RecyclerView.Adapter adapter = <span class="hljs-keyword">new</span> RecyclerView.Adapter() {
-            <span class="hljs-annotation">@Override</span>
-            <span class="hljs-keyword">public</span> RecyclerView.<span class="hljs-function">ViewHolder <span class="hljs-title">onCreateViewHolder</span><span class="hljs-params">(ViewGroup viewGroup, <span class="hljs-keyword">int</span> i)</span> </span>{
-                Button v = <span class="hljs-keyword">new</span> Button(activity);
-                RecyclerView.ViewHolder viewHolder = <span class="hljs-keyword">new</span> RecyclerView.ViewHolder(v) {
-                };
-                <span class="hljs-keyword">return</span> viewHolder;
-            }
-
-            <span class="hljs-annotation">@Override</span>
-            <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onBindViewHolder</span><span class="hljs-params">(RecyclerView.ViewHolder viewHolder, <span class="hljs-keyword">int</span> i)</span> </span>{
-                Button v = (Button) viewHolder.itemView;
-                v.setText(content[i]);
-            }
-
-            <span class="hljs-annotation">@Override</span>
-            <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span> <span class="hljs-title">getItemCount</span><span class="hljs-params">()</span> </span>{
-                <span class="hljs-keyword">return</span> <span class="hljs-number">20</span>;
-            }
-        };
-
-        RecyclerView v = <span class="hljs-keyword">new</span> RecyclerView(<span class="hljs-keyword">this</span>);
-        v.setLayoutParams(params);
-        v.setLayoutManager(linearManager);
-        v.setItemAnimator(animator);
-        v.setAdapter(adapter);
-
-        setContentView(v);
-    }
+<span class="hljs-tag">&lt;/<span class="hljs-title">RelativeLayout</span>&gt;</span>
 </code></pre>
-<p><img src="picture/06.png" alt=""></p>
+<h2 id="">被對齊元件的上方，且右邊對齊。</h2>
+<pre><code class="lang-xml"><span class="hljs-tag">&lt;<span class="hljs-title">RelativeLayout</span>
+    <span class="hljs-attribute">android:layout_width</span>=<span class="hljs-value">"match_parent"</span>
+    <span class="hljs-attribute">android:layout_height</span>=<span class="hljs-value">"match_parent"</span>&gt;</span>
+
+    <span class="hljs-tag">&lt;<span class="hljs-title">Button</span>
+        <span class="hljs-attribute">android:id</span>=<span class="hljs-value">"@+id/center_button"</span>
+        <span class="hljs-attribute">android:layout_width</span>=<span class="hljs-value">"200dp"</span>
+        <span class="hljs-attribute">android:layout_height</span>=<span class="hljs-value">"200dp"</span>
+        <span class="hljs-attribute">android:layout_centerInParent</span>=<span class="hljs-value">"true"</span>
+        <span class="hljs-attribute">android:text</span>=<span class="hljs-value">"Button 1"</span> /&gt;</span>
+
+    <span class="hljs-tag">&lt;<span class="hljs-title">Button</span>
+        <span class="hljs-attribute">android:layout_width</span>=<span class="hljs-value">"100dp"</span>
+        <span class="hljs-attribute">android:layout_height</span>=<span class="hljs-value">"100dp"</span>
+        <span class="hljs-attribute">android:layout_above</span>=<span class="hljs-value">"@id/center_button"</span>
+        <span class="hljs-attribute">android:layout_alignRight</span>=<span class="hljs-value">"@id/center_button"</span>
+        <span class="hljs-attribute">android:text</span>=<span class="hljs-value">"Button 2"</span> /&gt;</span>
+
+<span class="hljs-tag">&lt;/<span class="hljs-title">RelativeLayout</span>&gt;</span>
+</code></pre>
+<h2 id="">被對齊元件的下方，且左邊對齊。</h2>
+<pre><code class="lang-xml"><span class="hljs-tag">&lt;<span class="hljs-title">RelativeLayout</span>
+    <span class="hljs-attribute">android:layout_width</span>=<span class="hljs-value">"match_parent"</span>
+    <span class="hljs-attribute">android:layout_height</span>=<span class="hljs-value">"match_parent"</span>&gt;</span>
+
+    <span class="hljs-tag">&lt;<span class="hljs-title">Button</span>
+        <span class="hljs-attribute">android:id</span>=<span class="hljs-value">"@+id/center_button"</span>
+        <span class="hljs-attribute">android:layout_width</span>=<span class="hljs-value">"200dp"</span>
+        <span class="hljs-attribute">android:layout_height</span>=<span class="hljs-value">"200dp"</span>
+        <span class="hljs-attribute">android:layout_centerInParent</span>=<span class="hljs-value">"true"</span>
+        <span class="hljs-attribute">android:text</span>=<span class="hljs-value">"Button 1"</span> /&gt;</span>
+
+    <span class="hljs-tag">&lt;<span class="hljs-title">Button</span>
+        <span class="hljs-attribute">android:layout_width</span>=<span class="hljs-value">"100dp"</span>
+        <span class="hljs-attribute">android:layout_height</span>=<span class="hljs-value">"100dp"</span>
+        <span class="hljs-attribute">android:layout_below</span>=<span class="hljs-value">"@id/center_button"</span>
+        <span class="hljs-attribute">android:layout_alignLeft</span>=<span class="hljs-value">"@id/center_button"</span>
+        <span class="hljs-attribute">android:text</span>=<span class="hljs-value">"Button 2"</span> /&gt;</span>
+
+<span class="hljs-tag">&lt;/<span class="hljs-title">RelativeLayout</span>&gt;</span>
+</code></pre>
+<h2 id="">被對齊元件的下方，且右邊對齊。</h2>
+<pre><code class="lang-xml"><span class="hljs-tag">&lt;<span class="hljs-title">RelativeLayout</span>
+    <span class="hljs-attribute">android:layout_width</span>=<span class="hljs-value">"match_parent"</span>
+    <span class="hljs-attribute">android:layout_height</span>=<span class="hljs-value">"match_parent"</span>&gt;</span>
+
+    <span class="hljs-tag">&lt;<span class="hljs-title">Button</span>
+        <span class="hljs-attribute">android:id</span>=<span class="hljs-value">"@+id/center_button"</span>
+        <span class="hljs-attribute">android:layout_width</span>=<span class="hljs-value">"200dp"</span>
+        <span class="hljs-attribute">android:layout_height</span>=<span class="hljs-value">"200dp"</span>
+        <span class="hljs-attribute">android:layout_centerInParent</span>=<span class="hljs-value">"true"</span>
+        <span class="hljs-attribute">android:text</span>=<span class="hljs-value">"Button 1"</span> /&gt;</span>
+
+    <span class="hljs-tag">&lt;<span class="hljs-title">Button</span>
+        <span class="hljs-attribute">android:layout_width</span>=<span class="hljs-value">"100dp"</span>
+        <span class="hljs-attribute">android:layout_height</span>=<span class="hljs-value">"100dp"</span>
+        <span class="hljs-attribute">android:layout_below</span>=<span class="hljs-value">"@id/center_button"</span>
+        <span class="hljs-attribute">android:layout_alignRight</span>=<span class="hljs-value">"@id/center_button"</span>
+        <span class="hljs-attribute">android:text</span>=<span class="hljs-value">"Button 2"</span> /&gt;</span>
+
+<span class="hljs-tag">&lt;/<span class="hljs-title">RelativeLayout</span>&gt;</span>
+</code></pre>
+<h2 id="">被對齊元件的左方，且上邊對齊。</h2>
+<pre><code class="lang-xml"><span class="hljs-tag">&lt;<span class="hljs-title">RelativeLayout</span>
+    <span class="hljs-attribute">android:layout_width</span>=<span class="hljs-value">"match_parent"</span>
+    <span class="hljs-attribute">android:layout_height</span>=<span class="hljs-value">"match_parent"</span>&gt;</span>
+
+    <span class="hljs-tag">&lt;<span class="hljs-title">Button</span>
+        <span class="hljs-attribute">android:id</span>=<span class="hljs-value">"@+id/center_button"</span>
+        <span class="hljs-attribute">android:layout_width</span>=<span class="hljs-value">"200dp"</span>
+        <span class="hljs-attribute">android:layout_height</span>=<span class="hljs-value">"200dp"</span>
+        <span class="hljs-attribute">android:layout_centerInParent</span>=<span class="hljs-value">"true"</span>
+        <span class="hljs-attribute">android:text</span>=<span class="hljs-value">"Button 1"</span> /&gt;</span>
+
+    <span class="hljs-tag">&lt;<span class="hljs-title">Button</span>
+        <span class="hljs-attribute">android:layout_width</span>=<span class="hljs-value">"100dp"</span>
+        <span class="hljs-attribute">android:layout_height</span>=<span class="hljs-value">"100dp"</span>
+        <span class="hljs-attribute">android:layout_toLeftOf</span>=<span class="hljs-value">"@id/center_button"</span>
+        <span class="hljs-attribute">android:layout_alignTop</span>=<span class="hljs-value">"@id/center_button"</span>
+        <span class="hljs-attribute">android:text</span>=<span class="hljs-value">"Button 2"</span> /&gt;</span>
+
+<span class="hljs-tag">&lt;/<span class="hljs-title">RelativeLayout</span>&gt;</span>
+</code></pre>
+<h2 id="">被對齊元件的左方，且下邊對齊。</h2>
+<pre><code class="lang-xml"><span class="hljs-tag">&lt;<span class="hljs-title">RelativeLayout</span>
+    <span class="hljs-attribute">android:layout_width</span>=<span class="hljs-value">"match_parent"</span>
+    <span class="hljs-attribute">android:layout_height</span>=<span class="hljs-value">"match_parent"</span>&gt;</span>
+
+    <span class="hljs-tag">&lt;<span class="hljs-title">Button</span>
+        <span class="hljs-attribute">android:id</span>=<span class="hljs-value">"@+id/center_button"</span>
+        <span class="hljs-attribute">android:layout_width</span>=<span class="hljs-value">"200dp"</span>
+        <span class="hljs-attribute">android:layout_height</span>=<span class="hljs-value">"200dp"</span>
+        <span class="hljs-attribute">android:layout_centerInParent</span>=<span class="hljs-value">"true"</span>
+        <span class="hljs-attribute">android:text</span>=<span class="hljs-value">"Button 1"</span> /&gt;</span>
+
+    <span class="hljs-tag">&lt;<span class="hljs-title">Button</span>
+        <span class="hljs-attribute">android:layout_width</span>=<span class="hljs-value">"100dp"</span>
+        <span class="hljs-attribute">android:layout_height</span>=<span class="hljs-value">"100dp"</span>
+        <span class="hljs-attribute">android:layout_toLeftOf</span>=<span class="hljs-value">"@id/center_button"</span>
+        <span class="hljs-attribute">android:layout_alignBottom</span>=<span class="hljs-value">"@id/center_button"</span>
+        <span class="hljs-attribute">android:text</span>=<span class="hljs-value">"Button 2"</span> /&gt;</span>
+
+<span class="hljs-tag">&lt;/<span class="hljs-title">RelativeLayout</span>&gt;</span>
+</code></pre>
+<h2 id="">被對齊元件的右方，且上邊對齊。</h2>
+<pre><code class="lang-xml"><span class="hljs-tag">&lt;<span class="hljs-title">RelativeLayout</span>
+    <span class="hljs-attribute">android:layout_width</span>=<span class="hljs-value">"match_parent"</span>
+    <span class="hljs-attribute">android:layout_height</span>=<span class="hljs-value">"match_parent"</span>&gt;</span>
+
+    <span class="hljs-tag">&lt;<span class="hljs-title">Button</span>
+        <span class="hljs-attribute">android:id</span>=<span class="hljs-value">"@+id/center_button"</span>
+        <span class="hljs-attribute">android:layout_width</span>=<span class="hljs-value">"200dp"</span>
+        <span class="hljs-attribute">android:layout_height</span>=<span class="hljs-value">"200dp"</span>
+        <span class="hljs-attribute">android:layout_centerInParent</span>=<span class="hljs-value">"true"</span>
+        <span class="hljs-attribute">android:text</span>=<span class="hljs-value">"Button 1"</span> /&gt;</span>
+
+    <span class="hljs-tag">&lt;<span class="hljs-title">Button</span>
+        <span class="hljs-attribute">android:layout_width</span>=<span class="hljs-value">"100dp"</span>
+        <span class="hljs-attribute">android:layout_height</span>=<span class="hljs-value">"100dp"</span>
+        <span class="hljs-attribute">android:layout_toRightOf</span>=<span class="hljs-value">"@id/center_button"</span>
+        <span class="hljs-attribute">android:layout_alignTop</span>=<span class="hljs-value">"@id/center_button"</span>
+        <span class="hljs-attribute">android:text</span>=<span class="hljs-value">"Button 2"</span> /&gt;</span>
+
+<span class="hljs-tag">&lt;/<span class="hljs-title">RelativeLayout</span>&gt;</span>
+</code></pre>
+<h2 id="">被對齊元件的右方，且下邊對齊。</h2>
+<pre><code class="lang-xml"><span class="hljs-tag">&lt;<span class="hljs-title">RelativeLayout</span>
+    <span class="hljs-attribute">android:layout_width</span>=<span class="hljs-value">"match_parent"</span>
+    <span class="hljs-attribute">android:layout_height</span>=<span class="hljs-value">"match_parent"</span>&gt;</span>
+
+    <span class="hljs-tag">&lt;<span class="hljs-title">Button</span>
+        <span class="hljs-attribute">android:id</span>=<span class="hljs-value">"@+id/center_button"</span>
+        <span class="hljs-attribute">android:layout_width</span>=<span class="hljs-value">"200dp"</span>
+        <span class="hljs-attribute">android:layout_height</span>=<span class="hljs-value">"200dp"</span>
+        <span class="hljs-attribute">android:layout_centerInParent</span>=<span class="hljs-value">"true"</span>
+        <span class="hljs-attribute">android:text</span>=<span class="hljs-value">"Button 1"</span> /&gt;</span>
+
+    <span class="hljs-tag">&lt;<span class="hljs-title">Button</span>
+        <span class="hljs-attribute">android:layout_width</span>=<span class="hljs-value">"100dp"</span>
+        <span class="hljs-attribute">android:layout_height</span>=<span class="hljs-value">"100dp"</span>
+        <span class="hljs-attribute">android:layout_toRightOf</span>=<span class="hljs-value">"@id/center_button"</span>
+        <span class="hljs-attribute">android:layout_alignBottom</span>=<span class="hljs-value">"@id/center_button"</span>
+        <span class="hljs-attribute">android:text</span>=<span class="hljs-value">"Button 2"</span> /&gt;</span>
+
+<span class="hljs-tag">&lt;/<span class="hljs-title">RelativeLayout</span>&gt;</span>
+</code></pre>
 
                     
                     </section>
@@ -973,10 +1026,10 @@
         </div>
 
         
-        <a href="../chapter01/gridlayoutmanager.html" class="navigation navigation-prev " aria-label="Previous page: GridLayoutManager"><i class="fa fa-angle-left"></i></a>
+        <a href="../xml/relativelayouttoparent.html" class="navigation navigation-prev " aria-label="Previous page: RelativeLayout 相對於父框架"><i class="fa fa-angle-left"></i></a>
         
         
-        <a href="../actionbar/README.html" class="navigation navigation-next " aria-label="Next page: ActionBar"><i class="fa fa-angle-right"></i></a>
+        <a href="../xml/framelayout.html" class="navigation navigation-next " aria-label="Next page: FrameLayout"><i class="fa fa-angle-right"></i></a>
         
     </div>
 </div>
