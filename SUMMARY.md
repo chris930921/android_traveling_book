@@ -33,6 +33,10 @@
    * [AlertDialog 快速範例拆解](alertdialog/alertdialogsampleanalysis.md)
    * [AlertDialog 先建立後顯示](alertdialog/alertdialoginitbeforeshow.md)
    * [AlertDialog OnClickListener 方法分析](alertdialog/dialoginterfaceonclicklistener.md)
+* [ProgressBar](progressbar/README.md)
+   * [XML範例](progressbar/progressbarxmlsample.md)
+   * [範例 - 在程式碼中取得元件](progressbar/get_component_in_program.md)
+   * [範例 - 用按鈕控制進度條增減](progressbar/controller_progress_by_button_-.md)
 * [RecyclerView](chapter01/README.md)
    * [HorizonLinearManager](chapter01/horizonlinearmanager.md)
    * [VertialLinearManager](chapter01/vertiallinearmanager.md)
@@ -40,4 +44,7 @@
    * [StaggeredGridLayoutManager](chapter01/staggeredgridlayoutmanager.md)
 * [ActionBar](actionbar/README.md)
    * [onCreateOptionsMenu](actionbar/oncreateoptionsmenu.md)
+   * [ActionBar 非正規的 RTL 反轉 ](actionbar/actionbarrtlreserve__rtl.md)
+* [DrawerLayout](drawerlayout/README.md)
+   * [左側選單中的子選單](drawerlayout/twolayerdrawlayout.md)
 
