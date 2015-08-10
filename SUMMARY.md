@@ -37,6 +37,7 @@
    * [XML範例](progressbar/progressbarxmlsample.md)
    * [範例 - 在程式碼中取得元件](progressbar/get_component_in_program.md)
    * [範例 - 用按鈕控制進度條增減](progressbar/controller_progress_by_button_-.md)
+   * [ProgressDrialog 視窗](progressbar/progress_dialog_sample.md)
 * [RecyclerView](chapter01/README.md)
    * [HorizonLinearManager](chapter01/horizonlinearmanager.md)
    * [VertialLinearManager](chapter01/vertiallinearmanager.md)
