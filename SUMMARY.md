@@ -42,7 +42,7 @@
    * [讀取資料範例](sharedpreferences/sharedpreferencessample.md)
    * [寫入資料範例](sharedpreferences/writesample.md)
 * [ListView](listview/README.md)
-   * [ArrayList](listview/arraylist)
+   * [ArrayList](listview/arraylist.md)
    * [HashMap](listview/hashmap)
    * [ArrayAdapter](listview/arrayadapter.md)
    * [SimpleAdapter](listview/simpleadapter.md)
