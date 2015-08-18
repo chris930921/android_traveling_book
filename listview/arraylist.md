@@ -1,6 +1,11 @@
 # ArrayList
 
-* Java 中用來當作動態的陣列
+* 一種資料結構。
+* Java 中可動態增加元素的陣列。
+* 需決定放置的元素的型態。
+* toString() 方法可將陣列中的所有元素以字串呈現。
+* add() 方法放入元素。
+* get() 方法取得元素，索引值從 0 開始。
 
 ```java
 public class MainActivity extends Activity {
@@ -52,4 +57,29 @@ public class MainActivity extends Activity {
         setContentView(v);
     }
 }
+```
+
+```java
+public class MainActivity extends Activity {
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+
+        ArrayList<String> strGroup = new ArrayList<>();
+        strGroup.add("String One");
+        strGroup.add("String Two");
+        strGroup.add("String Three");
+
+        //取出元素
+        String result = strGroup.get(0) + "\n" +
+                strGroup.get(1) + "\n" +
+                strGroup.get(2) + "\n";
+
+        TextView v = new TextView(this);
+        v.setText(result);
+        setContentView(v);
+    }
+}
+
 ```
