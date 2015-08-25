@@ -1,4 +1,4 @@
-# OpenAndGetValue開啟並傳送資訊
+# Service 將自己本身關閉
 
 #### AndroidManifest.xml 註冊 Service 標籤
 ```xml
@@ -38,13 +38,8 @@ public class MainActivity extends Activity {
         super.onCreate(savedInstanceState);
         activity = this;
 
-        //新增包裹放入資料。
-        Bundle message = new Bundle();
-        message.putString("KeyOne", "ValueOne");
-
-        //放入intent中，將資料一起傳送出去。
+        //開啟 Service
         Intent intent = new Intent(activity, MainService.class);
-        intent.putExtras(message);
         startService(intent);
     }
 }
@@ -54,15 +49,42 @@ public class MainActivity extends Activity {
 #### MainService.java
 ```java
 public class MainService extends Service {
+    // 計數用屬性
+    private int count;
+    // 定時器，因為會在不同環境中，分別使用定時器的 cancel()、schedule() 方法，
+    // 所以放到類別屬性中提升物件可見度。
+    private Timer timer;
 
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
-        // 從參數傳入的 intent 中取回包裹。
-        Bundle message = intent.getExtras();
-        // 用相同的 Key 字串取出資料。
-        String value = message.getString("KeyOne");
-        // 顯示。
-        Toast.makeText(this, value, Toast.LENGTH_LONG).show();
+        // 屬性初始化
+        count = 0;
+
+        TimerTask action = new TimerTask() {
+            @Override
+            public void run() {
+
+                if (count < 3) {
+                    // 還沒數到 3 ，顯示數值並 + 1 。
+                    Log.d("MainService", "次數: " + count);
+                    count = count + 1;
+
+                } else {
+                    // 已經數到 3，關閉定時器，Service 自行關閉。
+                    Log.d("MainService", "結束背景服務。");
+                    // 利用定時器的 cancel() 方法，停止定時動作。
+                    timer.cancel();
+                    // 利用 Service 自帶的 stopSelf() 方法，將自己關閉。
+                    stopSelf();
+
+                }
+            }
+        };
+
+        // 建立定時器物件，放入可見範圍較高的類別屬性中。
+        // 如果放入區域變數中，在數到 3 時會找不到定時器物件執行 cancel() 方法。
+        timer = new Timer();
+        timer.schedule(action, 1000, 1000);
         return super.onStartCommand(intent, flags, startId);
     }
 

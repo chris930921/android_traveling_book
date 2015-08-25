@@ -1,6 +1,5 @@
-# 背景執行範例
+# Service 發送訊息給 Activity
 
-#### AndroidManifest.xml 註冊 Service 標籤
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
@@ -31,39 +30,57 @@
 #### MainActivity.java
 ```java
 public class MainActivity extends Activity {
-    Activity activity;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        activity = this;
+        final TextView text = new TextView(this);
+        setContentView(text);
 
-        //開啟 Service
-        Intent intent = new Intent(activity, MainService.class);
+        BroadcastReceiver receiver = new BroadcastReceiver() {
+            @Override
+            public void onReceive(Context context, Intent intent) {
+                // 處理 Service 傳來的訊息。
+                Bundle message = intent.getExtras();
+                int value = message.getInt("KeyOne");
+                String strValue = String.valueOf(value);
+                text.setText(strValue);
+            }
+        };
+
+        final String Action = "FilterString";
+        IntentFilter filter = new IntentFilter(Action);
+        // 將 BroadcastReceiver 在 Activity 掛起來。
+        registerReceiver(receiver, filter);
+
+        // 啟動 Service。
+        Intent intent = new Intent(this, MainService.class);
         startService(intent);
     }
 }
 ```
 
-
 #### MainService.java
 ```java
 public class MainService extends Service {
+    int count = 0;
 
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
-        // 設定每次時間觸發時執行的動作，將這些動作包成物件，放進 TimerTask 型態的參考中。
         TimerTask action = new TimerTask() {
             @Override
             public void run() {
-                Log.d("MainService", "Running");
+                // 每隔 1 秒就將計數 + 1，並發送廣播。
+                Bundle message = new Bundle();
+                message.putInt("KeyOne", count);
+                Intent intent = new Intent("FilterString");
+                intent.putExtras(message);
+                sendBroadcast(intent);
+
+                count++;
             }
         };
 
-        // 將定時器物件建立出來。
         Timer timer = new Timer();
-        // 利用 schedule() 方法，將執行動作、延遲時間(1秒)、間隔時間(1秒) 輸入方法中。
-        // 執行此方法後將會定時執行動作。
         timer.schedule(action, 1000, 1000);
         return super.onStartCommand(intent, flags, startId);
     }

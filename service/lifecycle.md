@@ -43,7 +43,7 @@
 
 #### MainActivity.java
 ```java
-public class MainActivity extends ActionBarActivity {
+public class MainActivity extends Activity {
     Activity activity;
 
     @Override
