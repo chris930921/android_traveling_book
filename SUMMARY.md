@@ -75,5 +75,5 @@
    * [sample](cardview/sample)
 * [ActivityTransitionView](activitytransitionview.md)
    * [SingleViewTransition](singleviewtransition.md)
-   * MultipleViewsTransition
+   * [MultipleViewsTransition](multipleviewstransition.md)
 
