@@ -28,7 +28,7 @@ public class MainActivity extends Activity {
         final RelativeLayout container = new RelativeLayout(this);
         // 簡化程式碼，教容易貼上實作。
         // 單數次開啟Activity圖會再中間
-        // 單數次開啟Activity圖會再右邊
+        // 雙數次開啟Activity圖會再右邊
         container.setGravity((count++ % 2 == 0) ? Gravity.CENTER : Gravity.RIGHT);
         container.addView(image);
 
