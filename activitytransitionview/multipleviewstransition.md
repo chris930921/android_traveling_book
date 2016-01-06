@@ -1,6 +1,7 @@
 # MultipleViewsTransition
 
 ```java
+
 import android.app.Activity;
 import android.app.ActivityOptions;
 import android.content.Intent;
@@ -20,33 +21,14 @@ public class MainActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        // 單數次開啟Activity圖會再左上
-        // 雙數次開啟Activity圖會再右上
+        // 單數次開啟Activity圖會再左邊
+        // 雙數次開啟Activity圖會再右邊
         int side = (count % 2 == 0) ? RelativeLayout.ALIGN_PARENT_LEFT : RelativeLayout.ALIGN_PARENT_RIGHT;
 
-        // 建立要轉移的 view 、轉移名稱
-        RelativeLayout.LayoutParams params = new RelativeLayout.LayoutParams(
-                ViewGroup.LayoutParams.WRAP_CONTENT,
-                ViewGroup.LayoutParams.WRAP_CONTENT);
-        params.addRule(side);
-        params.addRule(RelativeLayout.ALIGN_PARENT_TOP);
-
-        final ImageView image = new ImageView(this);
-        image.setImageResource(R.mipmap.ic_launcher);
-        image.setTransitionName(transitionName);
-        image.setLayoutParams(params);
-
-        // 建立要轉移的 view 、轉移名稱
-        RelativeLayout.LayoutParams paramsTwo = new RelativeLayout.LayoutParams(
-                ViewGroup.LayoutParams.WRAP_CONTENT,
-                ViewGroup.LayoutParams.WRAP_CONTENT);
-        paramsTwo.addRule(side);
-        paramsTwo.addRule(RelativeLayout.ALIGN_PARENT_BOTTOM);
-
-        final ImageView imageTwo = new ImageView(this);
-        imageTwo.setImageResource(R.mipmap.ic_launcher);
-        imageTwo.setTransitionName(transitionNameTwo);
-        imageTwo.setLayoutParams(paramsTwo);
+        // 建立要轉移的 view 、轉移名稱，放在上方
+        final ImageView image = getImage(side, RelativeLayout.ALIGN_PARENT_TOP, transitionName);
+        // 建立要轉移的 view 、轉移名稱，放在下方
+        final ImageView imageTwo = getImage(side, RelativeLayout.ALIGN_PARENT_BOTTOM, transitionNameTwo);
 
         // 放入框架中設定介面
         final RelativeLayout container = new RelativeLayout(this);
@@ -70,7 +52,23 @@ public class MainActivity extends Activity {
 
         count++;
     }
+
+    public ImageView getImage(int side, int gravity, String name) {
+        RelativeLayout.LayoutParams params = new RelativeLayout.LayoutParams(
+                ViewGroup.LayoutParams.WRAP_CONTENT,
+                ViewGroup.LayoutParams.WRAP_CONTENT);
+        params.addRule(side);
+        params.addRule(gravity);
+
+        final ImageView v = new ImageView(this);
+        v.setImageResource(R.mipmap.ic_launcher);
+        v.setTransitionName(name);
+        v.setLayoutParams(params);
+
+        return v;
+    }
 }
+
 ```
 
 ![](Selection_303.png)
