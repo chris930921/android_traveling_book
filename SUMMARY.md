@@ -73,5 +73,5 @@
    * [左側選單中的子選單](drawerlayout/twolayerdrawlayout.md)
 * [CardView](cardview/README)
    * [sample](cardview/sample)
-* ActivityTransitionView
+* [ActivityTransitionView](activitytransitionview.md)
 
