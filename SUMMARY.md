@@ -76,6 +76,4 @@
 * [ActivityTransitionView](activitytransitionview.md)
    * [SingleViewTransition](singleviewtransition.md)
    * [MultipleViewsTransition](multipleviewstransition.md)
-* [Open](open/yes.md)
-   * [ohhh](open/ohhh.md)
 
