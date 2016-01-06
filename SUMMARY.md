@@ -25,7 +25,7 @@
    * [TextView](xml/textview.md)
    * [EditText](xml/edittext.md)
 * [Toast](toast/README.md)
-   * [Toast 使用方式 ](toast/toastshow.md)
+   * [Toast 使用方式](toast/toastshow.md)
    * [Toast 客製化介面](toast/toastcustomsize.md)
 * [Log](log/README.md)
 * [AlertDialog](alertdialog/README.md)
@@ -68,9 +68,10 @@
    * [StaggeredGridLayoutManager](chapter01/staggeredgridlayoutmanager.md)
 * [ActionBar](actionbar/README.md)
    * [onCreateOptionsMenu](actionbar/oncreateoptionsmenu.md)
-   * [ActionBar 非正規的 RTL 反轉 ](actionbar/actionbarrtlreserve__rtl.md)
+   * [ActionBar 非正規的 RTL 反轉](actionbar/actionbarrtlreserve__rtl.md)
 * [DrawerLayout](drawerlayout/README.md)
    * [左側選單中的子選單](drawerlayout/twolayerdrawlayout.md)
 * [CardView](cardview/README)
-   * [sample](cardview\sample)
+   * [sample](cardview/sample)
+* ActivityTransitionView
 
