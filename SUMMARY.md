@@ -73,7 +73,7 @@
    * [左側選單中的子選單](drawerlayout/twolayerdrawlayout.md)
 * [CardView](cardview/README)
    * [sample](cardview/sample)
-* [ActivityTransitionView](activitytransitionview.md)
-   * [SingleViewTransition](singleviewtransition.md)
-   * [MultipleViewsTransition](multipleviewstransition.md)
+* [ActivityTransitionView](activitytransitionview/activitytransitionview.md)
+   * [SingleViewTransition](activitytransitionview/singleviewtransition.md)
+   * [MultipleViewsTransition](activitytransitionview/multipleviewstransition.md)
 
