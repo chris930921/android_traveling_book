@@ -83,7 +83,7 @@ ViewPager 判斷你沒有覆寫 instantiateItem() 的方式，就是確認你是
             at android.support.v4.view.PagerAdapter.destroyItem(PagerAdapter.java:192)
 ---
 
-ViewPager 判斷你沒有覆寫 destroyItem() 的方式，就是確認你是否有執行到 super.instantiateItem();
+ViewPager 判斷你沒有覆寫 destroyItem() 的方式，就是確認你是否有執行到 super.destroyItem();
 如果方法中有撰寫 super.destroyItem(container, position, object); 就會引發該錯誤。
 ```
 
