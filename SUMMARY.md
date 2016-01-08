@@ -81,5 +81,5 @@
 * [ViewPagger](viewpagger/viewpagger.md)
    * [使用 FragmentPagerAdapter](viewpagger/shi_yong_fragmentpageradapter.md)
    * [使用 FragmentStatePagerAdapter](viewpagger/fragmentstatepageradapter.md)
-   * 使用 PagerAdapter
+   * [使用 PagerAdapter](viewpagger/pageradapter.md)
 
