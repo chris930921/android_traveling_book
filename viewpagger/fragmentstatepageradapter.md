@@ -25,6 +25,7 @@ public class MainActivity extends Activity {
         // 需提供 ID，否則會拋出錯誤。
         pager.setId(View.generateViewId());
         // FragmentPagerAdapter 會保留當前頁、前一頁、後一頁的Fragment，其他葉面的記憶體會釋放。
+        // 這裡只先提供基本可以運作的寫法，特性再後面章節介紹。
         pager.setAdapter(new FragmentStatePagerAdapter(getFragmentManager()) {
 
             @Override
