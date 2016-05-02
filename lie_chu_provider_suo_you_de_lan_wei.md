@@ -12,12 +12,12 @@ public class MainActivity extends AppCompatActivity {
         Uri uri = Uri.parse("content://browser/bookmarks");
         
         // 作 SELECT * 查詢
-        Cursor c = getContentResolver().query(uri, null, null, null, null);
+        Cursor cursor = getContentResolver().query(uri, null, null, null, null);
         
         // 每欄名稱印出後換行
         String text = "";
-        for (int i = 0; i < c.getColumnCount(); i++) {
-            text += c.getColumnName(i) + "\n";
+        for (int i = 0; i < cursor.getColumnCount(); i++) {
+            text += cursor.getColumnName(i) + "\n";
         }
         
         // 顯示再畫面上
