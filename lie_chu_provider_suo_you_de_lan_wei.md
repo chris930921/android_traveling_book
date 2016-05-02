@@ -1,6 +1,11 @@
 # 列出 Provider 所有的欄位
 
+AndroidManifest.xml
+```xml
+<uses-permission android:name="com.android.browser.permission.READ_HISTORY_BOOKMARKS" />
+```
 
+MainActivity.java
 ```java
 public class MainActivity extends AppCompatActivity {
 
