@@ -1,5 +1,11 @@
 # 有條件的進行查詢 - 前後部份比對
 
+AndroidManifest.xml
+```xml
+<uses-permission android:name="com.android.browser.permission.READ_HISTORY_BOOKMARKS" />
+```
+
+MainActivity.java
 ```java
 public class MainActivity extends AppCompatActivity {
 
