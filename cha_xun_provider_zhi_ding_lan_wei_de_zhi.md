@@ -1,5 +1,11 @@
 # 查詢 Provider 指定欄位的值
 
+AndroidManifest.xml
+```xml
+<uses-permission android:name="com.android.browser.permission.READ_HISTORY_BOOKMARKS" />
+```
+
+MainActivity.java
 ```java
 public class MainActivity extends AppCompatActivity {
 
