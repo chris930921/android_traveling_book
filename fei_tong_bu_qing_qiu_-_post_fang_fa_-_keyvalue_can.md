@@ -37,6 +37,7 @@ public class MainActivity extends Activity {
                 try {
                     // 取得內容
                     String result = response.body().string();
+                    Log.d("MainActivity", result);
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
