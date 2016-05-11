@@ -1,4 +1,4 @@
-# 搭配 GSON - Get 請求
+# 搭配 GSON - Get 請求處理 JSON 物件
 
 以請求 https://api.github.com/rate_limit 這個 API 為例，其內容如下
 ```json
