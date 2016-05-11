@@ -15,7 +15,7 @@ public class MainActivity extends Activity {
 
     public interface ApiUri {
         // @Multipart 設定請求使用 Multipart 方式
-        // @Part 設定 Multipart 的參數名稱和值，並指定使用 RequestBody 類別。
+        // @Part 設定 Multipart 的參數名稱和值，並指定使用 RequestBody 類型。
         @Multipart
         @POST("/rate_limit")
         Call<ResponseBody> get(@Part("photo") RequestBody photo);
