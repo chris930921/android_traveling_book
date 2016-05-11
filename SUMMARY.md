@@ -103,5 +103,5 @@
 * [Retrofit2](retrofit2.md)
    * [GSON - 處理 JSON 物件內容](dapei_gson_-_get_qing_qiu_md.md)
    * [GSON - 處理 JSON 陣列內容](da_pei_gson_-_get_qing_qiu_chu_li_json_zhen_lie.md)
-   * [搭配 GSON - GET 請求處理屬性中的 JSON 陣列](da_pei_gson_-_get_qing_qiu_chu_li_shu_xing_zhong_d.md)
+   * [GSON - 處理屬性中的 JSON 陣列](da_pei_gson_-_get_qing_qiu_chu_li_shu_xing_zhong_d.md)
 
