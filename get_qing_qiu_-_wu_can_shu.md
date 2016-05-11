@@ -1,5 +1,7 @@
 # GET 請求 - 無參數
 
+以請求 https://api.github.com/rate_limit 這個 API 為例
+
 AndroidManifest.xml
 ```xml
 <uses-permission android:name="android.permission.INTERNET" />
