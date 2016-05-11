@@ -30,7 +30,7 @@ AndroidManifest.xml
 
 MainActivity.java
 ```java
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends Activity {
 
     // 根據 JSON 的結構和 key 的名稱，建立資料結構類別
     public class Data {
