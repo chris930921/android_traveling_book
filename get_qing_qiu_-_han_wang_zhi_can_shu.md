@@ -2,7 +2,7 @@
 
 以請求 https://api.github.com/search/users?q=chris930921 這個 API 為例，
 
-此 API 有一個 q 網址參數，代表要搜尋的關鍵字。
+此搜尋使用者 API，有一個 q 網址參數代表要搜尋的關鍵字。
 
 AndroidManifest.xml
 ```xml
@@ -28,7 +28,9 @@ public class MainActivity extends AppCompatActivity {
                 .build();
 
         ApiUri apiUri = retrofit.create(ApiUri.class);
+        // 設定要搜尋的字串為 chris930921，取得一個 request 物件。
         Call<ResponseBody> call = apiUri.searchUser("chris930921");
+        // 發出 Request。
         call.enqueue(new Callback<ResponseBody>() {
             @Override
             public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
