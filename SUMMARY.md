@@ -101,5 +101,5 @@
    * [以 Stream 方式讀取內容](yi_stream_fang_shi_du_qu_nei_rong.md)
    * [同步請求](tong_bu_qing_qiu.md)
 * [Retrofit2](retrofit2.md)
-   * [搭配 GSON - GET 請求](da_pei_gson_-_get_qing_qiu.md)
+   * [搭配 GSON - GET 請求](dapei_gson_-_get_qing_qiu_md.md)
 
