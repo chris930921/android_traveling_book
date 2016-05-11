@@ -101,4 +101,5 @@
    * [以 Stream 方式讀取內容](yi_stream_fang_shi_du_qu_nei_rong.md)
    * [同步請求](tong_bu_qing_qiu.md)
 * [Retrofit2](retrofit2.md)
+   * 搭配 GSON - Get 請求為例
 
