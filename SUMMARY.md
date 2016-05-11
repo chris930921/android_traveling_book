@@ -102,5 +102,5 @@
    * [同步請求](tong_bu_qing_qiu.md)
 * [Retrofit2](retrofit2.md)
    * [搭配 GSON - GET 請求處理 JSON 物件](dapei_gson_-_get_qing_qiu_md.md)
-   * # 搭配 GSON - GET 請求處理 JSON 陣列
+   * [搭配 GSON - GET 請求處理 JSON 陣列](da_pei_gson_-_get_qing_qiu_chu_li_json_zhen_lie.md)
 
