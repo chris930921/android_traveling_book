@@ -104,7 +104,7 @@
    * [GET 請求 - 無參數](get_qing_qiu_-_wu_can_shu.md)
    * [GET 請求 - 含 Header](get_qing_qiu_-_han_header.md)
    * [GET 請求 - 含網址參數](get_qing_qiu_-_han_wang_zhi_can_shu.md)
-   * GET 請求 - 含 URI 參數
+   * [GET 請求 - 含 URI 參數](get_qing_qiu-_han_uri_can_shu.md)
    * [POST 請求 - 含 form-data 參數](post_qing_qiu_-_han_form_-_data_can_shu.md)
    * [POST 請求 - 含 Multipart 參數](post_qing_qiu_-_han_multipart_can_shu.md)
    * [GSON - 處理 JSON 物件內容](dapei_gson_-_get_qing_qiu_md.md)
