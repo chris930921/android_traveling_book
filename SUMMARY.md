@@ -115,5 +115,5 @@
    * [建立資料表並新增、查詢資料](jian_li_zi_liao_biao_bing_xin_zeng_3001_cha_xun_zi.md)
    * [查詢條件 - 數值比對](cha_xun_tiao_jian_-_wan_quan_bi_dui.md)
    * [查詢條件 - 是否有值](cha_xun_tiao_jian_-_da_yu_deng_yu.md)
-   * [查詢條件 - 小於等於](cha_xun_tiao_jian_-_xiao_yu_deng_yu.md)
+   * [查詢條件 - 統計資料](cha_xun_tiao_jian_-_xiao_yu_deng_yu.md)
 
