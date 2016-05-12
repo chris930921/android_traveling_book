@@ -29,6 +29,8 @@ public class MainActivity extends AppCompatActivity {
         RealmConfiguration config = new RealmConfiguration.Builder(this)
                 .name("database_name.realm")
                 .setModules(new Module())
+                // 如上次以建立過相同名稱資料庫，但欄位結構已經改變時，會刪除舊資料庫，不是實務上的必要動作。
+                .deleteRealmIfMigrationNeeded()
                 .build();
         Realm realm = Realm.getInstance(config);
         
