@@ -1,6 +1,6 @@
 # 查詢條件 - 數值比對
 
-TableName.java
+User.java
 ```java
 public class User extends RealmObject {
     private int id;
@@ -45,9 +45,9 @@ public class MainActivity extends AppCompatActivity {
         Realm realm = Realm.getInstance(config);
         realm.beginTransaction();
         for (int i = 0; i < 200; i++) {
-            User table = realm.createObject(User.class);
-            table.setId(i);
-            table.setName(String.valueOf(i));
+            User item = realm.createObject(User.class);
+            item.setId(i);
+            item.setName(String.valueOf(i));
         }
         realm.commitTransaction();
 
