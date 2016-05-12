@@ -47,6 +47,8 @@ public class MainActivity extends Activity {
 
         // 開始資料庫交易。
         realm.beginTransaction();
+        // 這裡清空資料表，只是為了保持乾淨讓執行結果正常，不是實務上的必要動作。
+        realm.clear(User.class);
         // 建立資料物件，並設定數值。
         for (int i = 0; i < 10; i++) {
             TableName table = realm.createObject(TableName.class);
