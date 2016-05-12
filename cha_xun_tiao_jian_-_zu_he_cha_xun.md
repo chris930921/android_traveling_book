@@ -31,7 +31,7 @@ public class MainActivity extends AppCompatActivity {
                 .setModules(new Module())
                 .build();
         Realm realm = Realm.getInstance(config);
-
+        
         realm.beginTransaction();
         // 這裡清空資料表，只是為了保持乾淨讓執行結果正常，不是實務上的必要動作。
         realm.clear(User.class);
@@ -42,7 +42,6 @@ public class MainActivity extends AppCompatActivity {
         realm.commitTransaction();
 
         final String ID = "id";
-
         String text = "";
         // 查詢條件 ID == 2 or ID == 3
         text += realm.where(User.class).equalTo(ID, 2).or().equalTo(ID, 3).findAll().toString();
