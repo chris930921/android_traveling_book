@@ -1,4 +1,4 @@
-# 查詢條件 - 小於等於
+# 查詢條件 - 統計資料
 
 TableName.java
 ```java
