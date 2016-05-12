@@ -31,15 +31,14 @@ public class MainActivity extends AppCompatActivity {
                 .setModules(new Module())
                 .build();
         Realm realm = Realm.getInstance(config);
+        
         realm.beginTransaction();
         // 這裡清空資料表，只是為了保持乾淨讓執行結果正常，不是實務上的必要動作。
         realm.clear(User.class);
-        
         // 建立空值、非 null 的資料項。
         User item1 = realm.createObject(User.class);
         item1.setId(0);
         item1.setName("");
-        
         // 建立 null 的資料項。
         User item2 = realm.createObject(User.class);
         item2.setId(1);
@@ -47,7 +46,6 @@ public class MainActivity extends AppCompatActivity {
         realm.commitTransaction();
 
         final String NAME = "name";
-
         String text = "";
         // Name 為空的資料項。
         text += realm.where(User.class).isEmpty(NAME).findFirst().getId() + "\n";
