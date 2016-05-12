@@ -44,9 +44,13 @@ public class MainActivity extends AppCompatActivity {
                 .build();
         Realm realm = Realm.getInstance(config);
         realm.beginTransaction();
+        
+        // 建立空值、非 null 的資料項。
         User item1 = realm.createObject(User.class);
         item1.setId(0);
         item1.setName("");
+        
+        // 建立 null 的資料項。
         User item2 = realm.createObject(User.class);
         item2.setId(1);
         item2.setName(null);
