@@ -31,6 +31,7 @@ public class MainActivity extends AppCompatActivity {
                 .setModules(new Module())
                 .build();
         Realm realm = Realm.getInstance(config);
+        
         realm.beginTransaction();
         // 這裡清空資料表，只是為了保持乾淨讓執行結果正常，不是實務上的必要動作。
         realm.clear(User.class);
@@ -43,7 +44,6 @@ public class MainActivity extends AppCompatActivity {
 
         final String ID = "id";
         final String NAME = "name";
-
         String text = "";
         // id = 6 的資料項。
         text += realm.where(User.class).equalTo(ID, 6).findFirst().getId() + "\n";
