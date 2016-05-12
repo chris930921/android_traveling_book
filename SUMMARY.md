@@ -116,5 +116,5 @@
    * [查詢條件 - 數值比對](cha_xun_tiao_jian_-_wan_quan_bi_dui.md)
    * [查詢條件 - 是否有值](cha_xun_tiao_jian_-_da_yu_deng_yu.md)
    * [查詢條件 - 統計資料](cha_xun_tiao_jian_-_xiao_yu_deng_yu.md)
-   * 查詢條件 - 組合查詢
+   * [查詢條件 - 組合查詢](cha_xun_tiao_jian_-_zu_he_cha_xun.md)
 
