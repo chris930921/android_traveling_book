@@ -44,6 +44,8 @@ public class MainActivity extends AppCompatActivity {
                 .build();
         Realm realm = Realm.getInstance(config);
         realm.beginTransaction();
+        // 這裡清空資料表，只是為了保持乾淨讓執行結果正常，不是實務上的必要動作。
+        realm.clear(User.class);
         for (int i = 0; i < 200; i++) {
             User item = realm.createObject(User.class);
             item.setId(i);
