@@ -1,16 +1,25 @@
-# 查詢條件 - 完全比對
+# 查詢條件 - 數值比對
 
 TableName.java
 ```java
-public class TableName extends RealmObject {
-    private int fieldName;
+public class User extends RealmObject {
+    private int id;
+    private String name;
 
-    public void setFieldName(int fieldName) {
-        this.fieldName = fieldName;
+    public void setId(int id) {
+        this.id = id;
     }
 
-    public int getFieldName() {
-        return fieldName;
+    public int getId() {
+        return id;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getName() {
+        return name;
     }
 }
 ```
@@ -19,7 +28,7 @@ MainActivity.java
 ```java
 public class MainActivity extends AppCompatActivity {
 
-    @RealmModule(classes = {TableName.class})
+    @RealmModule(classes = {User.class})
     public static class Module {
     }
 
@@ -30,25 +39,41 @@ public class MainActivity extends AppCompatActivity {
         RealmConfiguration config = new RealmConfiguration.Builder(this)
                 .name("database_name.realm")
                 .setModules(new Module())
+                // 如之前有建立過相同資料庫，將其移除。
+                .deleteRealmIfMigrationNeeded()
                 .build();
         Realm realm = Realm.getInstance(config);
-
-        // 開始資料庫交易，新增資料。
         realm.beginTransaction();
-        for (int i = 0; i < 10; i++) {
-            TableName table = realm.createObject(TableName.class);
-            table.setFieldName(i);
+        for (int i = 0; i < 200; i++) {
+            User table = realm.createObject(User.class);
+            table.setId(i);
+            table.setName(String.valueOf(i));
         }
         realm.commitTransaction();
 
-        // 建立查詢資料的 query 物件，尋找 fieldName 欄位等於 6 的資料項。
-        RealmQuery<TableName> query = realm.where(TableName.class).equalTo("fieldName", 6);
+        final String ID = "id";
+        final String NAME = "name";
 
-        // 取得查詢後的資料，這裡簡化過程只取出第 1 項。
-        TableName result = query.findFirst();
-        String text = result.getFieldName() + "";
+        String text = "";
+        // id = 6 的資料項。
+        text += realm.where(User.class).equalTo(ID, 6).findFirst().getId() + "\n";
+        // id >= 6 的資料項。
+        text += realm.where(User.class).greaterThanOrEqualTo(ID, 8).findFirst().getId() + "\n";
+        // id <= 6 的資料項。
+        text += realm.where(User.class).lessThanOrEqualTo(ID, 6).findFirst().getId() + "\n";
+        // id > 6 的資料項。
+        text += realm.where(User.class).greaterThan(ID, 6).findFirst().getId() + "\n";
+        // id < 6 的資料項。
+        text += realm.where(User.class).lessThan(ID, 6).findFirst().getId() + "\n";
+        // id 在 50 ~ 100 之間 的資料項。
+        text += realm.where(User.class).between(ID, 50, 100).findFirst().getId() + "\n";
+        // Name 是 1 開頭的資料項。
+        text += realm.where(User.class).beginsWith(NAME, "1").findFirst().getName() + "\n";
+        // Name 是 1 結尾的資料項。
+        text += realm.where(User.class).endsWith(NAME, "1").findFirst().getName() + "\n";
+        // Name 裡包含 1 的資料項。
+        text += realm.where(User.class).contains(NAME, "1").findFirst().getName() + "\n";
 
-        // 顯示結果
         TextView v = new TextView(this);
         v.setText(text);
         setContentView(v);
