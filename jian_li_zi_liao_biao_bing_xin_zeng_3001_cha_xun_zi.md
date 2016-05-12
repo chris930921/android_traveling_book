@@ -39,8 +39,6 @@ public class MainActivity extends Activity {
         RealmConfiguration config = new RealmConfiguration.Builder(this)
                 .name("database_name.realm")
                 .setModules(new Module())
-                // 如之前有建立過相同資料庫，但資料表結構已改變時，將舊的資料移除。
-                .deleteRealmIfMigrationNeeded()
                 .build();
         // 根據設定建立 realm 物件。
         Realm realm = Realm.getInstance(config);
