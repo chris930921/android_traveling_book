@@ -44,6 +44,8 @@ public class MainActivity extends AppCompatActivity {
                 .build();
         Realm realm = Realm.getInstance(config);
         realm.beginTransaction();
+        // 這裡清空資料表，只是為了保持乾淨讓執行結果正常，不是實務上的必要動作。
+        realm.clear(User.class);
         
         // 建立空值、非 null 的資料項。
         User item1 = realm.createObject(User.class);
