@@ -39,7 +39,7 @@ public class MainActivity extends AppCompatActivity {
         RealmConfiguration config = new RealmConfiguration.Builder(this)
                 .name("database_name.realm")
                 .setModules(new Module())
-                        // 如之前有建立過相同資料庫，將其移除。
+                // 如之前有建立過相同資料庫，將其移除。
                 .deleteRealmIfMigrationNeeded()
                 .build();
         Realm realm = Realm.getInstance(config);
