@@ -119,4 +119,5 @@
    * [查詢條件 - 組合查詢](cha_xun_tiao_jian_-_zu_he_cha_xun.md)
    * [查詢條件 - 排序結果](cha_xun_tiao_jian_-_pai_xu_jie_guo.md)
    * [設定主鍵 PrimaryKey](she_ding_zhu_jian_primarykey.md)
+   * 不可空值 NotNull
 
